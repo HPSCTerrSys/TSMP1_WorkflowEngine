@@ -1,11 +1,11 @@
 CHANGELOG of TSMP_WorkfloGettingStarted
 
 vMAJOR.MINOR.PATCH 
-  date: "DATE OF CHANGE"
+  date: "DATE OF CHANGE [YYYY-MM-DD]"
   changes:
     - EXPLAIN WHAT CHANGED TO PREVIOUS VERSION
 v2.0.0
-  date: "2023.09.06"
+  date: "2023-09-06"
   changes:
     - add online documentation
     - publish on GitHub
