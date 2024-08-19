@@ -90,6 +90,11 @@ jobShortId="ssp370"
 # within the same type of sim. exp. and setup, do not change anything below
 ################################################################################
 
+# Set timestep for component models in seconds
+TSTP_COSMO=100
+TSTP_CLM=900
+TSTP_PARFLOW=900
+
 # PROC (processor, i.e. number of MPI tasks and CPU cores) distribution of 
 # individual component models; normally no changes during simulation experiment
 PROC_COSMO_X=16
@@ -142,6 +147,9 @@ export simLength=${simLength}
 export dateString=${dateString}
 export initDate=${initDate}
 export CaseID=${CaseID}
+export TSTP_COSMO=${TSTP_COSMO}
+export TSTP_CLM=${TSTP_CLM}
+export TSTP_PARFLOW=${TSTP_PARFLOW}
 export PROC_COSMO_X=${PROC_COSMO_X}
 export PROC_COSMO_Y=${PROC_COSMO_Y}
 export PROC_PARFLOW_P=${PROC_PARFLOW_P}
