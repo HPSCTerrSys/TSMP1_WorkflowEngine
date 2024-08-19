@@ -13,7 +13,7 @@ echo "START Logging ($(date)):"
 echo "###################################################"
 echo "--- exe: $0"
 echo "--- Simulation    init-date: ${initDate}"
-echo "---              start-data: ${startDate}"
+echo "---              start-date: ${startDate}"
 echo "---                  CaseID: ${CaseID}"
 echo "---            CaseCalendar: ${CaseCalendar}"
 echo "---             COMBINATION: ${COMBINATION}"
@@ -120,7 +120,7 @@ for component in "${components[@]}"; do
 	mkdir -vp ${rundir}/cosmo_out/pl
 	mkdir -vp ${rundir}/cosmo_out/ml
 	mkdir -vp ${rundir}/cosmo_out/zl
-        mkdir -vp ${BASE_RUNDIR}/restarts/cosmo
+  mkdir -vp ${BASE_RUNDIR}/restarts/cosmo
 	cp -v ${BASE_NAMEDIR}/INPUT_* ${rundir}/
 	sed -i "s,__hstart__,${hstart},g" INPUT_IO
 	sed -i "s,__hstop__,${hstop},g" INPUT_IO
@@ -162,7 +162,7 @@ for component in "${components[@]}"; do
 	start_tod=$((tmp_h*60*60 + tmp_m*60 + tmp_s))
 	sed -i "s,__start_tod__,${start_tod},g" lnd.stdin
 	clm_restart_date=$(date -u -d "${startDate}" '+%Y-%m-%d')
-        clm_restart_sec=$(printf "%05d" ${start_tod=})
+  clm_restart_sec=$(printf "%05d" ${start_tod=})
 	sed -i "s,__clm_restart__,clmoas.clm2.r.${clm_restart_date}-${clm_restart_sec}.nc,g" lnd.stdin
 	clm_tstp_nml=$(awk 'sub(/.*dtime/,""){print $2}' lnd.stdin)
 	if [ ${clm_tstp_nml} -ne ${TSTP_CLM} ]; then
@@ -243,7 +243,7 @@ for component in "${components[@]}"; do
 	sed -i "s,__nprocx_pfl_bldsva__,${PROC_PARFLOW_P},g" ascii2pfb_SoilInd.tcl
 	sed -i "s,__nprocy_pfl_bldsva__,${PROC_PARFLOW_Q},g" ascii2pfb_SoilInd.tcl
 	tclsh ascii2pfb_SoilInd.tcl
-  srun --nodes=1 --ntasks=1 --threads-per-core=1 tclsh coup_oas.tcl
+  srun --nodes=1 --ntasks=1 tclsh coup_oas.tcl
   #
 	cp -v ${TSMP_BINDIR}/parflow ${rundir}/
   
@@ -283,10 +283,18 @@ fi
 
 ################################################################################
 # Running the simulation
+#
+# unclear whether this has an impact due to the mapping with MPMD exec model
+# previous default srun invocation before 2024-08-06 update
+# supposed previous default, never explicitely set
+# supposed new default, explicitely setting affinity
 ################################################################################
 rm -rf YU*
 echo "DEBUG: start simulation"
-srun  --threads-per-core=1 --multi-prog slm_multiprog_mapping.conf
+srun --multi-prog slm_multiprog_mapping.conf
+#srun --cpu-bind=threads --distribution=block:cyclic:fcyclic --multi-prog slm_multiprog_mapping.conf
+#srun --cpu-bind=threads --distribution=block:cyclic:cyclic --multi-prog slm_multiprog_mapping.conf
+
 if [[ $? != 0 ]] ; then exit 1 ; fi
 date
 wait
@@ -298,7 +306,7 @@ wait
 echo "--- create SIMRES dir (and sub-dirs) to store simulation results"
 new_simres=${BASE_SIMRESDIR}/${formattedStartDate}
 echo "--- new_simres: $new_simres"
-# clean befor to avoid conflicts
+# clean beforehand to avoid conflicts in case of a re-run
 rm -rvf $new_simres
 mkdir -p "$new_simres/log"
 mkdir -p "$new_simres/nml"
@@ -388,6 +396,8 @@ for component in "${components[@]}"; do
     exit 1
   fi
 done
+# add more files from rundir/ to log/
+test -f ${rundir}/slm_multiprog_mapping.conf && cp ${rundir}/slm_multiprog_mapping.conf ${new_simres}/log/.
 
 # Wait for all procs to finish than save simres and clean rundir
 wait
@@ -406,12 +416,13 @@ totalRunTime_sec=$(($scriptEndTime - $scriptStartTime))
 # https://stackoverflow.com/a/39452629
 totalRunTime=$(printf '%02dh:%02dm:%02ds\n' $((totalRunTime_sec/3600)) $((totalRunTime_sec%3600/60)) $((totalRunTime_sec%60)))
 
-echo "--- Moving TSMP log to simres/"
+echo "--- Moving TSMP log to simres/log"
 TSMPLogFile=`ls -rt ${TSMP_BINDIR}/log_all* | tail -1`
-cp ${TSMPLogFile} ${new_simres}/log/TSMP_BuildLog.txt
+cp -v ${TSMPLogFile} ${new_simres}/log/TSMP_BuildLog.txt
 
-echo "--- Moving SLURM log to simres/"
-cp -v ${BASE_CTRLDIR}/logs/${CaseID}_simulation-??? $new_simres/log/
+echo "--- Moving SLURM log to simres/log"
+# testNewSlurmNewAffinityNewCtrl_sim_ssp370_2019010100.err.13066672
+cp -v ${BASE_CTRLDIR}/logs/${CaseID}_sim_*.{err,out}.${SLURM_JOB_ID} $new_simres/log/.
 
 histfile="HISTORY.txt"
 logdir="${new_simres}/log"

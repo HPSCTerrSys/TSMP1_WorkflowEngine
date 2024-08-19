@@ -90,12 +90,19 @@ mkdir -pv ${rundir}
 #... copying and unzipping will be done in parallel chunks
 MAXPP=${SLURM_NTASKS}
 COUNTPP=0
+#cafFilesTar="${BASE_FORCINGDIR}/cafFilesTar/year${y0}/${DRS_GCMMODEL}_${DRS_EXPERIMENT_NAME}_${DRS_ENSEMBLEME_MBER}_${y0}_${m0}.tar"
+cafFilesTar="${BASE_FORCINGDIR}/cafFilesTar/year${y0}/MPI-ESM-HR_${DRS_EXPERIMENT_NAME}_${DRS_ENSEMBLEME_MBER}_${y0}_${m0}.tar"
 cafFilesIn="${BASE_FORCINGDIR}/cafFilesIn/${y0}/${y0}_${m0}"
+#
+mkdir -pv ${cafFilesIn}
+tar -xvf ${cafFilesTar} -C ${cafFilesIn}
+#
 # Use find and POSIX-Extended_Regular_Expressions 
 # > https://en.wikibooks.org/wiki/Regular_Expressions/POSIX-Extended_Regular_Expressions
 # to copy only needed files.
 # In our case we need the forcing for every 3 hours only.
-FILELIST=$(find ${cafFilesIn} -regextype posix-extended -regex '.*cas[0-9]{8}(00|03|06|09|12|15|18|21)\.ncz' -print)
+#FILELIST=$(find ${cafFilesIn} -regextype posix-extended -regex '.*cas[0-9]{8}(00|03|06|09|12|15|18|21)\.ncz' -print)
+FILELIST=$(find ${cafFilesIn} -regextype posix-extended -regex '.*caf[0-9]{8}(00|06|12|18)\.ncz' -print)
 for FILE in ${FILELIST}
   do
     FILEBASE=$(basename ${FILE} .ncz)
