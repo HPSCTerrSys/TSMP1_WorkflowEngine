@@ -9,35 +9,28 @@
 # IMPORTANT the following variables HAVE TO be set via the
 # sbatch --export command
 # 1) ALL (ensure exported variables are passed to each subse. called script)
-# 2) startDate (tell the program for which date to start the sim)
+# 2) startDate (tell the program for which date to start the simulation)
 # 3) NoS (tell the programm how many simulaitons to start)
-###############################################################################
-# Prepare
-###############################################################################
+
 echo "###################################################"
 echo "START Logging ($(date)):"
 echo "###################################################"
 echo "--- exe: $0"
+echo "--- pwd: $(pwd)"
 echo "--- Simulation    init-date: ${initDate}"
-echo "---              start-data: ${startDate}"
+echo "---              start-date: ${startDate}"
 echo "---                  CaseID: ${CaseID}"
 echo "---            CaseCalendar: ${CaseCalendar}"
 echo "--- HOST:  $(hostname)"
 
-###############################################################################
-# Post-Pro
-###############################################################################
 loop_counter=1
-#while [ $loop_counter -le $NoS ]
-while [ $loop_counter -le $simPerJob ]
+while [ $loop_counter -le $NoS ]
 do
   cd $BASE_CTRLDIR
-  echo $loop_counter $simPerJob $startDate
   ./start_postpro.sh $startDate
   if [[ $? != 0 ]] ; then exit 1 ; fi
-  # forward startDate by simLength
-  startDate=$(date -u -d "$startDate + ${simLength}" "+%Y-%m-%dT%H:%MZ")
-  loop_counter=$((loop_counter+1))
+  startDate=$(date -u -d "${startDate} + ${simLength}" "+%Y-%m-%dT%H:%MZ")
+  ((loop_counter++))
   wait
 done
 

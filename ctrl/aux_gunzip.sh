@@ -5,13 +5,14 @@
 #SBATCH --ntasks=128
 #SBATCH --ntasks-per-node=128
 #SBATCH --threads-per-core=1
-#SBATCH --time=01:00:00
+#SBATCH --time=00:30:00
 #SBATCH --partition=dc-cpu
 #SBATCH --account=jjsc39
 #
 # USAGE: 
 # >> sbatch ./$0 TARGET/FILES/WILDCARDS/ARE/POSSIBL*
-# >> sbatch ./aux_gunzip.sh /p/scratch/cjibg35/tsmpforecast/ERA5Climat_EUR11_ECMWF-ERA5_analysis_FZJ-IBG3/run_TSMP/laf_lbfd/201[8,9]
+# for use in workflow
+# sbatch aux_gunzip.sh $WORKFLOWPATH/simres/ProductionV1/$DATE/{clm,cosmo,parflow}/{*/*,*}
 
 parallelGzip() (
   # Simple run gzip on inFile
@@ -24,7 +25,7 @@ echo "MAX_PARALLEL: $MAX_PARALLEL"
 inFiles=$@
 echo "${inFiles[@]}"
 tmp_parallel_counter=0
-for inFile in $inFiles
+for inFile in $(find $inFiles -type f -wholename "*.gz")
 do
   echo "DEBUG: inFile ${inFile}"
   parallelGzip ${inFile} &

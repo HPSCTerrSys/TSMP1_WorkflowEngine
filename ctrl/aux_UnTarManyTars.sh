@@ -7,9 +7,9 @@
 # In addition this works for multiple files, which can be apssed with 
 # wildcasts (*,?, etc) -- see USAGE
 # This script is aimed for the scope of my usual workflow structur, meaning
-# it is based on the usage of the 'export_paths.ksh'. If this script should
+# it is based on the usage of the 'export_paths.sh'. If this script should
 # be used outsind this scope, you need to take care about paths set within 
-# 'export_paths.ksh' by your self.
+# 'export_paths.sh' by your self.
 #
 # USAGE:
 # >> ./$0 PATH/TO/TAR/BALS/patterns*
