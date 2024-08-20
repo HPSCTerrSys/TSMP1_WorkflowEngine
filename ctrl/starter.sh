@@ -236,7 +236,7 @@ do
   if $pre ; then
     echo "pre"
     submit_prepro_return=$(sbatch \
-          --job-name="${CaseID}_pre_${simShortId}_${startDateId}" \
+          --job-name="${CaseID}_pre_${jobShortId}_${startDateId}" \
           --constraint=largedata \
           --export=ALL,startDate=${startDate},CTRLDIR=${BASE_CTRLDIR},NoS=${simPerJob} \
           --output="${BASE_LOGDIR}/%x.out.%j" \
