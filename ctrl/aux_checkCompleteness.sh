@@ -72,7 +72,9 @@ for i_procstep in {$BASE_SIMRESDIR,$BASE_POSTPRODIR} ; do
     check_result[$((0+$array_counter*2))]=$fnsumf
     check_result[$((1+$array_counter*2))]=$fssumf
     ((array_counter++))
-    echo ${check_result[@]}
+    #echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    #echo "intermediate result (size + number of files):" ${check_result[@]}
+    #echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   done
 done
 
@@ -97,13 +99,24 @@ for i_path in ${dateCheck}* ; do
 done
 check_result[$((0+$array_counter*2))]=$fnsumf
 check_result[$((1+$array_counter*2))]=$fssumf
-echo "to check:" ${check_result[@]}
+#echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#echo "to check finally (size + number of files):" ${check_result[@]}
+#echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
-#diff array
+echo "################################################################################"
+echo "check compare number of files and size per 3x simres, 3x postpto, 1x monitoring"
 array_counter=0
 declare -a refvec
 refvec=(23624.0 1487.0 389.0 149.0 713.0 726.0 2196.0 786.0 432.0 59.0 1407.0 884.0 252.0 41.0)
 echo "reference:" ${refvec[@]}
+echo "to check :" ${check_result[@]}
+echo "========================================="
+echo "line 1: cummulative number"
+echo "line 2: cummulative size"
+echo "COSMO"
+echo "CLM"
+echo "ParFlow"
+echo "========================================="
 for i in ${refvec[@]}
 do
   echo $i ${check_result[$array_counter]}
@@ -111,6 +124,9 @@ do
     echo "WARNING, number/size of files lower than expected, check ref:" ${check_result[$array_counter]} $i 
   fi
   ((array_counter++))
+  if [ $((array_counter%2)) -eq 0 ]; then
+    echo "----------"
+  fi 
 done
 
 exit 0
