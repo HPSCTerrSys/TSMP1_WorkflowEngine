@@ -241,14 +241,14 @@ do
           --export=ALL,startDate=${startDate},CTRLDIR=${BASE_CTRLDIR},NoS=${simPerJob} \
           --output="${BASE_LOGDIR}/%x.out.%j" \
           --error="${BASE_LOGDIR}/%x.err.%j" \
-          --mail-type=${sim_MAILTYPE} \
+          --mail-type=${pre_MAILTYPE} \
           --mail-user=${AUTHOR_MAIL} \
-          --nodes=${sim_NODES} \
-          --ntasks=${sim_NTASKS} \
-          --ntasks-per-node=${sim_NTASKSPERNODE} \
+          --nodes=${pre_NODES} \
+          --ntasks=${pre_NTASKS} \
+          --ntasks-per-node=${pre_NTASKSPERNODE} \
           --threads-per-core=1 \
-          --time=${sim_WALLCLOCK} \
-          --partition=${sim_PARTITION} \
+          --time=${pre_WALLCLOCK} \
+          --partition=${pre_PARTITION} \
           --account=${computeAccount} \
           submit_prepro.sh 2>&1)
     echo "${submit_prepro_return}"
