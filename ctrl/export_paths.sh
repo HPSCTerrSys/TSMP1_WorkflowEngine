@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# author: Niklas WAGNER
-# email: n.wagner@fz-juelich.de
-# version: 2022-01-11
-# USAGE: source export_paths.sh
-
 # This file is used to bypass hard coded paths. Therefore all important paths 
 # are defined in this file, which is sourced at the beginning of each script.
 # The script will then only use the environment variables provided this way. 
