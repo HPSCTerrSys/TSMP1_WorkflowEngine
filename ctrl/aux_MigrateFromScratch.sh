@@ -6,9 +6,10 @@
 # target-dir to the location of the original directory.
 #
 # USAGE:
-# >> bash ./$0 TARGET/DIR SOURCE/DIR/pattern*
-# >> bash ./aux_MigrateFromScratch.sh /p/arch2/jibg33/tsmpforecast/ERA5Climat_EUR11_ECMWF-ERA5_analysis_FZJ-IBG3/simres/ /p/scratch/cjibg35/tsmpforecast/ERA5Climat_EUR11_ECMWF-ERA5_analysis_FZJ-IBG3/simres/ERA5Climat_EUR11_ECMWF-ERA5_analysis_FZJ-IBG3_2005*
-# >> bash ./aux_MigrateFromScratch.sh /p/largedata/jjsc39/goergen1/sim/DETECT_EUR-11_ECMWF-ERA5_evaluation_r1i1p1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_vBaseline/simres/ProductionV1/ /p/scratch/cjjsc39/goergen1/sim/DETECT_EUR-11_ECMWF-ERA5_evaluation_r1i1p1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_vBaseline/simres/ProductionV1/19790[1,2]*
+# bash ./$0 TARGET/DIR SOURCE/DIR/pattern*
+# nohup bash ./aux_MigrateFromScratch.sh     /p/arch2/jjsc39/jjsc3900/sim/DETECT_EUR-11_MPI-ESM1-2-HR_historical_r1i1p1f1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_v1/simres/ProductionV1  /p/scratch/cjjsc39/goergen1/sim/DETECT_EUR-11_MPI-ESM1-2-HR_historical_r1i1p1f1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_v1R/simres/ProductionV1/19790[1,2]* >> nohup_simres.out &
+# nohup bash ./aux_MigrateFromScratch.sh /p/largedata2/detectdata/CentralDB/projects/d02/working_directory/sim/DETECT_EUR-11_MPI-ESM1-2-HR_historical_r1i1p1f1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_v1/postpro/ProductionV1 /p/scratch/cjjsc39/goergen1/sim/DETECT_EUR-11_MPI-ESM1-2-HR_historical_r1i1p1f1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_v1R/postpro/ProductionV1/19790[1,2]* >> nohup_postpro.out &
+
 
 TARGET=$1
 # .. and assumes every further argument as SOURCES (there is a plural s!)
@@ -26,6 +27,7 @@ for SOURCE in $SOURCES; do
   tar -cvf ${TARGET}/${source_name}.tar ${source_name}
   if [[ $? != 0 ]] ; then echo "ERROR" && exit 1 ; fi
   echo "-- remove source"
+  #mv ${source_name} REMOVE_${source_name} 
   rm -rf ${source_name}
   echo "-- linking"
   ln -sf ${TARGET}/${source_name}.tar ./

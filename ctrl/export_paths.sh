@@ -1,12 +1,12 @@
-#!/bin/ksh
+#!/bin/bash
 
 # This file is used to bypass hard coded paths. Therefore all important paths 
 # are defined in this file, which is sourced at the beginning of each script.
 # The script will then only use the environment variables provided this way. 
 # In principle, only the 'rootdir' has to be adjusted, all other paths result 
 # from it.
-expid="TSMP_WorkflowGettingStarted"
-rootdir="/PATH/TO/YOUR/EXPDIR/${expid}"
+expid="<SIMULATION_EXPERIMENT-ID>"
+rootdir="<FULL_PATH_SIMULATION_ROOT_DIR>/${expid}"
 export EXPID="${expid}"
 # export needed paths
 export BASE_ROOTDIR="${rootdir}"

@@ -1,6 +1,6 @@
 #!/bin/bash
-#
-# USAGE: 
+
+# USAGE: source ./$0
 
 ###############################################################################
 # Helper Functions
@@ -161,11 +161,11 @@ updatePathsForCASES() {
     # Version: 2022-06-01
     # Description:
     # This function does update the paths which are exported as environmental 
-    # variables within the export_paths.ksh.
+    # variables within the export_paths.sh.
     # The update is needed to ensure all simulations are running within its own
     # sub directory as indicatd in CASE.conf
     # IMPORTANT
-    # Make sure this is called after 'export_paths.ksh' is sourced
+    # Make sure this is called after 'export_paths.sh' is sourced
     ConfigFile=$1
     CaseID=$2
     CASENAMEDIR=$(git config -f ${ConfigFile} --get ${CaseID}.CASE-NAMEDIR)
