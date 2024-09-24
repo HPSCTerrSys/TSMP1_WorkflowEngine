@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Maintenance &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. How to contribute to the documentation." href="HowToContribute.html" />
+    <link rel="prev" title="4. Reproduce Simulation" href="ReproduceSimulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rendering-with-sphinx">5.1. Rendering with sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conf-py">5.1.1. conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-rst">5.1.2. index.rst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#github-pages">5.2. GitHub Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-workflows-ci-cd">5.3. GitHub workflows (CI/CD)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Maintenance</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/inDetail/maintenance.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="maintenance">
+<h1><span class="section-number">5. </span>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading"></a></h1>
+<p>At its core this documentation is written in simple <a class="reference external" href="https://markdown.de/">markdown</a>
+files, which are easy to write and quite portable, but the downside is that
+the resulting collection of files is not easy for the user to browse. To solve
+this problem, <a class="reference external" href="https://www.sphinx-doc.org/en/master">sphinx</a> is used to render
+a nice looking and searchable HTML documentation based on the markdown files,
+which can be opened in any web browser. To enable direct access for every user,
+the rendered documentation is then published with <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub-Pages</a>. Furthermore, the rendering and deployment process
+is automated using <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/about-workflows">GitHub workflows</a> to make it as easy as possible to update this
+documentation.</p>
+<p>The following sections describe all the steps and settings required to set up, understand, and maintain the above process chain on GitHub.</p>
+<section id="rendering-with-sphinx">
+<h2><span class="section-number">5.1. </span>Rendering with sphinx<a class="headerlink" href="#rendering-with-sphinx" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master">Sphinx</a> is a document generator written in Python that aims to render intelligent documentation in various output formats based on reStructuredText and markdown files.
+The backbone of Sphinx is a configure file (<code class="docutils literal notranslate"><span class="pre">conf.py</span></code>) that defines the features of the final documentation and an index file (<code class="docutils literal notranslate"><span class="pre">index.rst</span></code>) that forms the entry point of the final documentation, linking all involved markdown or reStructuredText files used for rendering.<br />
+For details information on how to get started see the official <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">GettingStarted website</a>.</p>
+<section id="conf-py">
+<h3><span class="section-number">5.1.1. </span>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
+<p>Setting up the configure file is quite straightforward and well explained in the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html">official documentation</a>. Three settings are highlighted below, which are mandatory for the current documentation:</p>
+<p><strong>Extensions</strong>:<br />
+Below extensions for sphinx are used and needed to render the documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;sphinx.ext.viewcode&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;sphinx_rtd_theme&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;sphinx.ext.napoleon&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;sphinx.ext.mathjax&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;sphinx_copybutton&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;myst_parser&#39;</span>
+<span class="w">        </span><span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>MyST parser</strong>:<br />
+<a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST</a> is a python parser for the markdown language available as an extension for sphinx. Further MyST can be used to generate link anchors, enabling to easily internally link different documentation pages.
+Using MyST requires the following setting in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">myst_heading_anchors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>
+
+<span class="nv">myst_enable_extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="s2">&quot;amsmath&quot;</span>,<span class="w">                  </span><span class="c1"># LaTeX equations</span>
+<span class="w">    </span><span class="s2">&quot;dollarmath&quot;</span>,<span class="w">               </span><span class="c1"># Inline LaTex</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+<p>To use a link anchors, first scan the related file for available anchors</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myst-anchors<span class="w"> </span>-l<span class="w"> </span>auxiliaryscripts.md
+&gt;&gt;<span class="w"> </span>&lt;h1<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;auxiliary-scripts&quot;</span>&gt;&lt;/h1&gt;
+&gt;&gt;<span class="w"> </span>&lt;h2<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;aux_migratefromscratchsh&quot;</span>&gt;&lt;/h2&gt;
+&gt;&gt;<span class="w"> </span>&lt;h2<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;aux_untarmanytarssh&quot;</span>&gt;&lt;/h2&gt;
+&gt;&gt;<span class="w"> </span>&lt;h2<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;aux_restagetapesh&quot;</span>&gt;&lt;/h2&gt;
+&gt;&gt;<span class="w"> </span>&lt;h2<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;aux_gzipsh-and-aux_gunzipsh&quot;</span>&gt;&lt;/h2&gt;
+&gt;&gt;<span class="w"> </span>&lt;h2<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="s2">&quot;aux_sha512sumsh&quot;</span>&gt;&lt;/h2&gt;
+</pre></div>
+</div>
+<p>than use a found anchor similar as normal links in markdown:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>aux_UnTarManyTars.sh<span class="o">](</span>REL/PATH/TO/auxiliaryscripts.md#aux_untarmanytarssh<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>Edit on GitHub button</strong>:<br />
+By default, sphinx provides a <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">page</span> <span class="pre">source</span></code> button in the top right corner of each page of the documentation. Clicking on this button will display the unrendered, raw content of that page. This functionality is not very helpful, but can easily be adapted into an <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> button, which will take you directly to the corresponding file in the repository to quickly apply changes. How to use this feature is described in detail in the <a class="reference internal" href="HowToContribute.html#how-to-contribute-to-the-documentation"><span class="std std-ref">How to contribute</span></a> section. To enable this functionality, the following settings are required in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">html_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;display_github&quot;</span>:<span class="w"> </span>True,<span class="w"> </span><span class="c1"># Integrate GitHub</span>
+<span class="w">    </span><span class="s2">&quot;github_user&quot;</span>:<span class="w"> </span><span class="s2">&quot;HPSCTerrSys&quot;</span>,<span class="w"> </span><span class="c1"># Username</span>
+<span class="w">    </span><span class="s2">&quot;github_repo&quot;</span>:<span class="w"> </span><span class="s2">&quot;TSMP1_WorkflowEngine&quot;</span>,<span class="w"> </span><span class="c1"># Repo name</span>
+<span class="w">    </span><span class="s2">&quot;github_version&quot;</span>:<span class="w"> </span><span class="s2">&quot;main&quot;</span>,<span class="w"> </span><span class="c1"># Version</span>
+<span class="w">    </span><span class="s2">&quot;conf_py_path&quot;</span>:<span class="w"> </span><span class="s2">&quot;/doc/&quot;</span>,<span class="w"> </span><span class="c1"># Path in the checkout to the docs root</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="index-rst">
+<h3><span class="section-number">5.1.2. </span>index.rst<a class="headerlink" href="#index-rst" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file forms the structure of the documentation and acts as a table of contents, determining which file to include in the rendering process. The structure of the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file thereby is quite simple, just a heading and a sequence of toctrees (imagine as chapters), which in turn consist of a list of involved files to render.</p>
+<p>Below is an example of an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file with a screenshot of the generated table of contents:</p>
+<blockquote>
+<div><p><strong>To be Noted:</strong><br />
+The actual text in the rendered TOC (such as <code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">Introduction</span></code> or <code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">Simulation</span> <span class="pre">Monitoring</span></code>) is taken from the headline of the associated markdown file, even if the file names are identical by chance!</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TSMP1_WorkflowEngine</span>
+<span class="o">===========================</span>
+
+..<span class="w"> </span>toctree::
+<span class="w">   </span>:maxdepth:<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>:numbered:
+<span class="w">   </span>:caption:<span class="w"> </span>Content:
+
+<span class="w">   </span>content/introduction.md
+<span class="w">   </span>content/gettingstarted.md
+<span class="w">   </span>content/directorystructure.md
+<span class="w">   </span>content/substeps.md
+<span class="w">   </span>content/jobsubmission.md
+<span class="w">   </span>content/auxiliaryscripts.md
+
+..<span class="w"> </span>toctree::
+<span class="w">   </span>:maxdepth:<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>:numbered:
+<span class="w">   </span>:caption:<span class="w"> </span>InDetail:
+
+<span class="w">   </span>content/inDetail/monitoring.md
+<span class="w">   </span>content/inDetail/ReproduceSimulation.md
+<span class="w">   </span>content/inDetail/maintenance.md
+<span class="w">   </span>content/inDetail/HowToContribute.md
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../_downloads/f2d0189d47d51c02cc9e297685f7abde/ScreenshotTabelOfContent_CODE.png"><span class="xref download myst"><img alt="ScreenshotTabelOfContent" src="../../_images/ScreenshotTabelOfContent_CODE.png" /></span></a><a class="reference download internal" download="" href="../../_downloads/e64cfd36151c2125d1dd634c30068f8e/ScreenshotTabelOfContent_IMG.png"><span class="xref download myst"><img alt="ScreenshotTabelOfContent" src="../../_images/ScreenshotTabelOfContent_IMG.png" /></span></a></p>
+</section>
+</section>
+<section id="github-pages">
+<h2><span class="section-number">5.2. </span>GitHub Pages<a class="headerlink" href="#github-pages" title="Link to this heading"></a></h2>
+<p>At their core, GitHub Pages are static websites hosted by GitHub and filled with content provided by a repository. With GitHub Pages, the user does not have to worry about the technicalities of hosting websites. All you need to do is provide the website content in a supported format. GitHub Pages are disabled by default, and must be enabled in the repository settings. GitHub pages are free, but require a public repository.</p>
+<p>For this documentation, we have chosen to deploy the GitHub page from an extra branch, which means that we provide the content of the website from a separate branch of the relevant repository. If you look at the repository you will see that there are at least two branches. The <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/main"><code class="docutils literal notranslate"><span class="pre">main</span></code> branch</a> and a <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/gh-pages"><code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch</a>. The <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch is automatically created when you enable GitHub Pages, and is a special form of a branch, because it does not contain any content from the repository itself.  In our case, the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch only contains the output of sphinx rendering, so the content of the website.<br />
+Rendering the website and filling the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch is automated using GitHub workflows, which are explained in the following section <a class="reference internal" href="#github-workflows-ci-cd">GitHub workflows</a>.
+The following screenshot shows all the settings needed to enable GitHub pages:
+<a class="reference download internal" download="" href="../../_downloads/6d81c2c3021eb80c8786d5d43b096948/ScreenshotSettingGitHubPages.png"><span class="xref download myst"><img alt="ScreenshotTableOfContent" src="../../_images/ScreenshotSettingGitHubPages.png" /></span></a></p>
+</section>
+<section id="github-workflows-ci-cd">
+<h2><span class="section-number">5.3. </span>GitHub workflows (CI/CD)<a class="headerlink" href="#github-workflows-ci-cd" title="Link to this heading"></a></h2>
+<p>GitHub workflows are the functionality to execute a predefined set of programs in a defined order when a defined condition is met.
+These processing chains / workflows are defined in YAML files as a kind of abstract cookbook, e.g. saying</p>
+<blockquote>
+<div><p>When event A is triggered, execute job B, which consists of steps C, D, and E.</p>
+</div></blockquote>
+<p>These workflows can be as complex as you like by combining many and nested job-steps, which makes them very powerful! Each YAML file is a workflow, and you can have many workflows running in parallel with your repository, each for a different task. In order to be recognised as a workflow by GitHub, the YAML files must be saved under <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/main/.github/workflows"><code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code></a>.</p>
+<p>This repository contains three workflows, all aimed at rendering and deploying this documentation, but with slight differences depending on the triggering event.</p>
+<p>Below is a annotated sample YAML file to get a quick feel for it:
+<a class="reference download internal" download="" href="../../_downloads/40e086c91e666b81a6bc1349ae407824/ScreenshotYAMLFile.png"><span class="xref download myst"><img alt="ScreenshotTableOfContent" src="../../_images/ScreenshotYAMLFile.png" /></span></a></p>
+<p>Again imagine this workflow as a cook-book, executed on a blank machine. So when the above workflow is triggered</p>
+<ul class="simple">
+<li><p>A machine is started</p></li>
+<li><p>Ubuntu is selected as the operating system</p></li>
+<li><p>The content we want to render is checked out to this machine</p></li>
+<li><p>The environment is set-up by using a pre-defined python environment and installing the necessary programs</p></li>
+<li><p>The documentation is rendered using sphinx</p></li>
+<li><p>The rendered documentation is deployed to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and published to the web.</p></li>
+</ul>
+<p>As we chose Ubuntu as the operating system, we can run all available linux commands as job-steps, e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">myst-parser</span></code>, but also more complex predefined job-steps, e.g. <code class="docutils literal notranslate"><span class="pre">uses:</span> <span class="pre">peaceiris/actions-gh-pages&#64;v3</span></code>, which is a kind of makro that combines a more complex task into a single command. There are many predefined makros available for GitHub workflows, which could be used for free</p>
+<ul class="simple">
+<li><p>see <a class="reference external" href="https://github.com/marketplace">GitHub-Marketplace</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ReproduceSimulation.html" class="btn btn-neutral float-left" title="4. Reproduce Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HowToContribute.html" class="btn btn-neutral float-right" title="6. How to contribute to the documentation." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

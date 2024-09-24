@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Directory Structure &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Substeps" href="substeps.html" />
+    <link rel="prev" title="2. Getting Started" href="gettingstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Directory Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ctrl">3.1. ctrl/</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctrl-namelist">3.1.1. ctrl/namelist/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctrl-env">3.1.2. ctrl/env/</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#forcing">3.2. forcing/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geo">3.3. geo/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring">3.4. monitoring/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#postpro">3.5. postpro/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rundir">3.6. rundir/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simres">3.7. simres/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src">3.8. src/</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-paths-sh">3.9. export_paths.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Directory Structure</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/directorystructure.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="directory-structure">
+<h1><span class="section-number">3. </span>Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading"></a></h1>
+<p>As trivial and minor as a proper directory structure may sound, it  is very
+important.<br />
+As the name suggests, a directory structure structures the workflow. Directory
+names do dictate where to find certain files, where to store simulation results,
+forcing data, etc. This helps the maintainer to develop the source code, and
+also helps the user to get started and become familiar with the workflow.</p>
+<p>The directory structure of this workflow consists of a single layer only
+and contains the following directories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TSMP_WorkflowStarter</span><span class="o">/</span>
+<span class="o">|</span>    
+<span class="o">|----</span> <span class="n">ctrl</span>
+<span class="o">|</span>    <span class="o">|----</span> <span class="n">namelist</span>
+<span class="o">|</span>    <span class="o">|----</span> <span class="n">env</span>
+<span class="o">|----</span> <span class="n">forcing</span>
+<span class="o">|----</span> <span class="n">geo</span>
+<span class="o">|----</span> <span class="n">monitoring</span>
+<span class="o">|----</span> <span class="n">postpro</span>
+<span class="o">|----</span> <span class="n">rundir</span>
+<span class="o">|----</span> <span class="n">simres</span>
+<span class="o">|----</span> <span class="n">src</span>
+</pre></div>
+</div>
+<p>There may be other subdirectories, but those are not part of the mentioned
+directory structure and may vary from setup to setup.</p>
+<p>All of the directories are named very strictly according to what they are aimed
+for. With some experience of the workflow, these names will become very
+intuitive. Each directory is described in detail below.</p>
+<section id="ctrl">
+<h2><span class="section-number">3.1. </span>ctrl/<a class="headerlink" href="#ctrl" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ctrl/</span></code> (<strong>c</strong>on<strong>tr</strong>o<strong>l</strong>) contains all the scripts needed to control the
+workflow, as well as scripts written specifically for this workflow, such as
+post-processing scripts.</p>
+<section id="ctrl-namelist">
+<h3><span class="section-number">3.1.1. </span>ctrl/namelist/<a class="headerlink" href="#ctrl-namelist" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ctrl/namelist/</span></code>, clearly contains <strong>namlist</strong>s for the individual component
+models used within the workflow. As these namelists do control the model
+behaviour and are specific to the workflow, this is a subdirectory of <code class="docutils literal notranslate"><span class="pre">ctrl/</span></code>.</p>
+</section>
+<section id="ctrl-env">
+<h3><span class="section-number">3.1.2. </span>ctrl/env/<a class="headerlink" href="#ctrl-env" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ctrl/env/</span></code> contains the <strong>env</strong>iroment files used. Since each simulation
+depends on a specific set of programs (e.g. python) and libraries (e.g. netCDF)
+in a specific version, we need to provide this information to the user of the
+workflow. Environment files does list these dependencies and ensure that the
+required environment is set up correctly.</p>
+</section>
+</section>
+<section id="forcing">
+<h2><span class="section-number">3.2. </span>forcing/<a class="headerlink" href="#forcing" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">forcing/</span></code> is a directory containing any <strong>forcing</strong> files needed. This could
+be an atm. forcing dataset driving the land surface model CLM or lateral
+boundary conditions needed by the atm. Model COSMO.</p>
+</section>
+<section id="geo">
+<h2><span class="section-number">3.3. </span>geo/<a class="headerlink" href="#geo" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">geo/</span></code> contains files required by the component models that define the model
+domain. This could be topographic data, land cover data, soil properties, grids
+defining the spatial extent of the domain and many more. Often this data is
+referred to as <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">files</span></code>, but as some of the required data sets, such as
+the land cover, may change over time, <code class="docutils literal notranslate"><span class="pre">static</span></code> could be misleading, hence the
+name <code class="docutils literal notranslate"><span class="pre">geo/</span></code>.</p>
+</section>
+<section id="monitoring">
+<h2><span class="section-number">3.4. </span>monitoring/<a class="headerlink" href="#monitoring" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">monitoring/</span></code> contains the output of some <strong>monitoring</strong> functions.
+Monitoring of simulations is a crucial aspect to ensure accurate and reliable
+results. Various factors can impact the simulation outcomes, ranging from
+simulation interruptions and crashes to subtle corruptions of the results.
+Manually reviewing simulation results periodically can be extremely
+time-consuming, especially considering the large size of simulation outputs and
+the potentially lengthy duration of simulations, which may run for several
+months. To address this challenge, a monitoring functionality has been
+incorporated into this workflow.</p>
+<p>The monitoring functionality automatically generates summary plots at regular
+intervals, providing a concise overview of the simulation progress. A detailed
+description of the implementation could be found within the
+<a class="reference internal" href="inDetail/monitoring.html#simulation-monitoring"><span class="std std-ref">Simulation Monitoring</span></a> section.<br />
+Those monitoring plots are stored in the <code class="docutils literal notranslate"><span class="pre">monitoring/</span></code> directory, allowing users
+to conveniently monitor
+the simulation directly by browsing through them. It is also conceivable that
+one could upload these plots to a web server, enabling even more accessible
+monitoring of the simulation. Scripts providing this functionality have been
+intentionally designed with simplicity and robustness in mind. While they may
+not generate publication-ready plots, they serve the purpose of providing
+essential information about the simulation. Users should bring a basic
+understanding of the simulation results to effectively utilize these scripts.</p>
+</section>
+<section id="postpro">
+<h2><span class="section-number">3.5. </span>postpro/<a class="headerlink" href="#postpro" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">postpro/</span></code> simply contains the <strong>post-pro</strong>cessed simulation results. The
+post-processing step is thereby very individual for each simulation and can vary
+from simple aggregation of simulation results (to e.g. monthly files), to the
+calculation of further diagnostics derived from the original simulation results.</p>
+</section>
+<section id="rundir">
+<h2><span class="section-number">3.6. </span>rundir/<a class="headerlink" href="#rundir" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rundir/</span></code> is the directory in which the actual simulation <strong>run</strong>s. In order to
+run a simulation, you need a directory where everything is put together, i.e.
+static files, executables for individual component models, namelist, etc. for
+that particular simulation. Most of the time the actual run directory is even a
+subdirectory of <code class="docutils literal notranslate"><span class="pre">rundir/</span></code>, automatically created by the workflow, allowing you
+to run multiple simulations in parallel.</p>
+</section>
+<section id="simres">
+<h2><span class="section-number">3.7. </span>simres/<a class="headerlink" href="#simres" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">simres</span></code> simply contains the raw (not post processed) <strong>sim</strong>ulation
+<strong>res</strong>ults. In addition, some log files are stored with each simulation
+results, containing information about which workflow was used to generate those
+simulation results. If the workflow is used correctly, this log file will
+contain all the information  needed to reproduce the simulation result.</p>
+</section>
+<section id="src">
+<h2><span class="section-number">3.8. </span>src/<a class="headerlink" href="#src" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">src/</span></code> contains <strong>s</strong>ou<strong>rc</strong>e code used within the workflow. The most
+prominent of these is the cloned and build <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP">TSMP</a>,
+but other external code is also placed here.</p>
+</section>
+<section id="export-paths-sh">
+<h2><span class="section-number">3.9. </span>export_paths.sh<a class="headerlink" href="#export-paths-sh" title="Link to this heading"></a></h2>
+<p>Not directly part of the directory structure, but an important aspect of why
+this structure is used, is the <code class="docutils literal notranslate"><span class="pre">export_path.sh</span></code> script located in <code class="docutils literal notranslate"><span class="pre">ctrl/</span></code>. This
+script is one of the core pieces of code in this workflow, and allows you to run
+the workflow from any location, and even change the location during runtime.
+<code class="docutils literal notranslate"><span class="pre">export_paths.sh</span></code> is loaded at the beginning of each simulation and exports the
+absolute paths to the main directories (the ones above) in environment
+variables. Each script within this workflow in turn uses these environment
+variables to refer to other directories and scripts. This avoids the problem of
+using hard-coded paths, and gives the user full flexibility in where the
+simulation is run.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gettingstarted.html" class="btn btn-neutral float-left" title="2. Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="substeps.html" class="btn btn-neutral float-right" title="4. Substeps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

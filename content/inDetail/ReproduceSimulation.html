@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Reproduce Simulation &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. Maintenance" href="maintenance.html" />
+    <link rel="prev" title="3. Run not fully coupled experiments" href="NotFullyCoupledExp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Reproduce Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#history-txt">4.1. HISTORY.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reproducing-a-simulation">4.2. Reproducing a simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#restage-the-simres-directory">4.2.1. Restage the <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restore-the-workflow-used">4.2.2. Restore the workflow used</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-the-model">4.2.3. Build the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provide-forcing-files">4.2.4. Provide forcing files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#re-run-the-simulation">4.2.5. Re-Run the simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Reproduce Simulation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/inDetail/ReproduceSimulation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="reproduce-simulation">
+<h1><span class="section-number">4. </span>Reproduce Simulation<a class="headerlink" href="#reproduce-simulation" title="Link to this heading"></a></h1>
+<p>The functionality to reproduce individual simulations is very important.
+Reproducibility is not only good scientific practice, but also protects you from data loss and allows further testing even after the entire experiment has been completed.</p>
+<p>To enable reproducibility, this workflow tracks (almost) everything with git on remote repositories (e.g. GitLab) and stores the exact settings used for individual simulations in the corresponding <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory. Below is an example of what this looks like in detail, and how to actually reproduce a simulation restored from tape.</p>
+<p><strong>NOTE:</strong><br />
+The forcing files used are not tracked because the storage volumes are too large.<br />
+<strong>Tracking the forcing files is the responsibility of the experimenter!</strong></p>
+<section id="history-txt">
+<h2><span class="section-number">4.1. </span>HISTORY.txt<a class="headerlink" href="#history-txt" title="Link to this heading"></a></h2>
+<p>The core element needed to reproduce a simulation is the <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code> file, stored in <code class="docutils literal notranslate"><span class="pre">simres/CASE/SIMDATE/log/HISTORY.txt</span></code>. Here <code class="docutils literal notranslate"><span class="pre">CASE</span></code> is the CASE name, e.g. <code class="docutils literal notranslate"><span class="pre">MainRun</span></code> by default, and <code class="docutils literal notranslate"><span class="pre">SIMDATE</span></code> is the actual simulation data, e.g. <code class="docutils literal notranslate"><span class="pre">1978120100</span></code>. Both will vary from experiment to experiment.<br />
+An example of a <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code> file is shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+Author:<span class="w"> </span>Niklas<span class="w"> </span>WAGNER
+e-mail:<span class="w"> </span>n.wagner@fz-juelich.de
+version:<span class="w"> </span>Do<span class="w"> </span><span class="m">31</span>.<span class="w"> </span>Aug<span class="w"> </span><span class="m">06</span>:17:42<span class="w"> </span>CEST<span class="w"> </span><span class="m">2023</span>
+<span class="c1">###############################################################################</span>
+MACHINE:<span class="w"> </span>jurecadc
+PARTITION:<span class="w"> </span>dc-cpu
+CaseID:<span class="w"> </span>ProductionV1
+Total<span class="w"> </span>runtime:<span class="w"> </span>05h:12m:10s
+<span class="c1">###############################################################################</span>
+The<span class="w"> </span>following<span class="w"> </span>setup<span class="w"> </span>was<span class="w"> </span>used:<span class="w"> </span>
+<span class="c1">###############################################################################</span>
+WORKFLOW<span class="w"> </span>
+--<span class="w"> </span>REPO:
+remote:<span class="w"> </span>https://icg4geo.icg.kfa-juelich.de/Configurations/TSMP/DETECT_EUR-11_ECMWF-ERA5_evaluation_r1i1p1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_vBaselineHwu.git
+--<span class="w"> </span>LOG:<span class="w"> </span>
+tag:<span class="w"> </span>v0.1.0-79-g66b50b7
+commit:<span class="w"> </span>66b50b787795ea32e32bbd4332d2e3d1a7ca1566
+author:<span class="w"> </span>Niklas<span class="w"> </span>Wagner
+date:<span class="w"> </span>Wed<span class="w"> </span>Aug<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">16</span>:32:12<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0200
+subject:<span class="w"> </span>Add<span class="w"> </span>production<span class="w"> </span>namelist-link<span class="w"> </span>and<span class="w"> </span>rundir
+
+To<span class="w"> </span>check<span class="w"> </span><span class="k">if</span><span class="w"> </span>no<span class="w"> </span>uncommited<span class="w"> </span>change<span class="w"> </span>is<span class="w"> </span>made<span class="w"> </span>to<span class="w"> </span>above<span class="w"> </span>repo,<span class="w"> </span>bypassing<span class="w"> </span>this<span class="w"> </span>tracking,
+the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>printed<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>GitDiffHead_workflow.diff<span class="sb">`</span>.
+<span class="c1">###############################################################################</span>
+Submodule:<span class="w"> </span>geo/TSMP_EUR-11
+remote:<span class="w"> </span>https://gitlab.jsc.fz-juelich.de/detect/detect_z03_z04/constant_fields/TSMP_EUR-11.git
+tag:<span class="w"> </span>v3.1.1-36-g5fbc818
+commit:<span class="w"> </span>5fbc81871a161349abb71ffb8fcaa6b78bcef60a
+author:<span class="w"> </span>Niklas<span class="w"> </span>Wagner
+date:<span class="w"> </span>Thu<span class="w"> </span>Jun<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">11</span>:56:05<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0200
+subject:<span class="w"> </span>Add<span class="w"> </span>maintenance<span class="w"> </span>section<span class="w"> </span><span class="k">in</span><span class="w"> </span>documentation
+
+To<span class="w"> </span>check<span class="w"> </span><span class="k">if</span><span class="w"> </span>no<span class="w"> </span>uncommited<span class="w"> </span>change<span class="w"> </span>is<span class="w"> </span>made<span class="w"> </span>to<span class="w"> </span>above<span class="w"> </span>repo,<span class="w"> </span>bypassing<span class="w"> </span>this<span class="w"> </span>tracking,
+the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>printed<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>GitDiffHead_TSMP_EUR-11.diff<span class="sb">`</span>.
+<span class="c1">###############################################################################</span>
+Submodule:<span class="w"> </span>src/TSMP
+remote:<span class="w"> </span>https://github.com/HPSCTerrSys/TSMP.git
+tag:<span class="w"> </span>v1.4.0
+commit:<span class="w"> </span>dad9a4c4d5816839fcf64dd63f6a1eb1fda17655
+author:<span class="w"> </span>chartick
+date:<span class="w"> </span>Wed<span class="w"> </span>Apr<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">09</span>:09:52<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0200
+subject:<span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#187 from HPSCTerrSys/release_candidate</span>
+
+To<span class="w"> </span>check<span class="w"> </span><span class="k">if</span><span class="w"> </span>no<span class="w"> </span>uncommited<span class="w"> </span>change<span class="w"> </span>is<span class="w"> </span>made<span class="w"> </span>to<span class="w"> </span>above<span class="w"> </span>repo,<span class="w"> </span>bypassing<span class="w"> </span>this<span class="w"> </span>tracking,
+the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>printed<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>GitDiffHead_TSMP.diff<span class="sb">`</span>.
+</pre></div>
+</div>
+<p>We can easily extract some information from this file, such as who is the author, when was this simulation run, on which machine was this simulation performed, how long was the runtime of this simulation etc.<br />
+More important is the information about the different repositories used. Mandatory and always present is the information about the workflow repository used:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>WORKFLOW<span class="w"> </span>
+--<span class="w"> </span>REPO:
+remote:<span class="w"> </span>https://icg4geo.icg.kfa-juelich.de/Configurations/TSMP/DETECT_EUR-11_ECMWF-ERA5_evaluation_r1i1p1_FZJ-COSMO5-01-CLM3-5-0-ParFlow3-12-0_vBaselineHwu.git
+--<span class="w"> </span>LOG:<span class="w"> </span>
+tag:<span class="w"> </span>v0.1.0-79-g66b50b7
+commit:<span class="w"> </span>66b50b787795ea32e32bbd4332d2e3d1a7ca1566
+author:<span class="w"> </span>Niklas<span class="w"> </span>Wagner
+date:<span class="w"> </span>Wed<span class="w"> </span>Aug<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">16</span>:32:12<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0200
+subject:<span class="w"> </span>Add<span class="w"> </span>production<span class="w"> </span>namelist-link<span class="w"> </span>and<span class="w"> </span>rundir
+
+To<span class="w"> </span>check<span class="w"> </span><span class="k">if</span><span class="w"> </span>no<span class="w"> </span>uncommited<span class="w"> </span>change<span class="w"> </span>is<span class="w"> </span>made<span class="w"> </span>to<span class="w"> </span>above<span class="w"> </span>repo,<span class="w"> </span>bypassing<span class="w"> </span>this<span class="w"> </span>tracking,
+the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>printed<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>GitDiffHead_workflow.diff<span class="sb">`</span>.
+</pre></div>
+</div>
+<p>This logs the repository URL so that we can clone the workflow used and reuse it. It also logs the commit used, so we can check out the specific version of the workflow used for the simulation we want to reproduce. Even if the repository history has been broken, e.g. by applying a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>, etc., the tag, commit author, commit date, and commit subject are all tracked, to provide as much information as possible to find the exact same version of the workflow as was used for the original simulation.</p>
+<p>However, even if the above sounds like all the necessary information is being logged, it is possible to defeat this logging by not committing changes to the workflow during the runtime of the original simulation. Since uncommitted changes are not part of the git history, those changes are not part of this logging either. To avoid losing information this way, e.g. because important changes to the workflow were not committed, the current state of the working tree is also logged, by storing the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">HEAD</span></code> in <code class="docutils literal notranslate"><span class="pre">GitDiffHead_workflow.diff</span></code>. In this way, <code class="docutils literal notranslate"><span class="pre">GitDiffHead_workflow.diff</span></code> acts as a sort of patch file, which we can reapply to our recloned repository to restore the exact same state that was used for the original simulation.</p>
+<p>As with the workflow repository, all submodels used are also tracked.</p>
+</section>
+<section id="reproducing-a-simulation">
+<h2><span class="section-number">4.2. </span>Reproducing a simulation<a class="headerlink" href="#reproducing-a-simulation" title="Link to this heading"></a></h2>
+<p>To reproduce a simulation, we need to do the following.</p>
+<section id="restage-the-simres-directory">
+<h3><span class="section-number">4.2.1. </span>Restage the <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory<a class="headerlink" href="#restage-the-simres-directory" title="Link to this heading"></a></h3>
+<p>During or after the original experiment, the individual <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directories will be tarred and moved to the archive, ultimately migrated from spinning disk to tap. Manually restaging them back to spinning disk and unpacking them could be a very time consuming task, so there are two auxiliary scripts shipped with this workflow helping you with this. i) <a class="reference internal" href="../auxiliaryscripts.html#aux-restagetape-sh"><span class="std std-ref">aux_restageTape.sh</span></a> and ii) <a class="reference internal" href="../auxiliaryscripts.html#aux-untarmanytars-sh"><span class="std std-ref">aux_UnTarManyTars.sh</span></a></p>
+</section>
+<section id="restore-the-workflow-used">
+<h3><span class="section-number">4.2.2. </span>Restore the workflow used<a class="headerlink" href="#restore-the-workflow-used" title="Link to this heading"></a></h3>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory is back on spinning disc, extract the <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code> file, move to a directory where you want to set up the old workflow, and clone the workflow repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/DIR/WHERE/TO/SETUP/OLD/WORKFLOW
+git<span class="w"> </span>clone<span class="w"> </span>GITURL
+</pre></div>
+</div>
+<p>Enter the cloned directory.<br />
+As we just want to reproduce a simulation, and dont want to push some changes to the remote repository, let us disable the push function. Just to make sure we do not mess up the remote repo. To do so type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>--push<span class="w"> </span>origin<span class="w"> </span>no_push
+</pre></div>
+</div>
+<p>Now restore the specific version of the workflow used by the simulation we want to reproduce. Do so by checking out the logged commit (stored in <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>COMMITSHA<span class="w"> </span>
+</pre></div>
+</div>
+<p>Most probably the workflow is using submodules, so initialize them now with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>submodule<span class="w"> </span>init<span class="w"> </span>
+git<span class="w"> </span>submodule<span class="w"> </span>update
+</pre></div>
+</div>
+<p>To also include changes not committed to the repository, apply the previously mentioned patch file <code class="docutils literal notranslate"><span class="pre">GitDiffHead_workflow.diff</span></code>. Therefore copy this file from the restaged <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory to the new cloned workflow and use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">apply</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>PATCHFILE<span class="w"> </span>./
+git<span class="w"> </span>apply<span class="w"> </span>GitDiffHead_workflow.diff
+</pre></div>
+</div>
+<p>In principle the <code class="docutils literal notranslate"><span class="pre">GitDiffHead_workflow.diff</span></code> files does also contain the information if a submodule was not committed during runtime of the original simulation. But <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">apply</span></code> does not update submodules, as submodule tracking is different to usual file tracking. So if submodules are used (if other repositories than the workflow are listed in <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code>) you have to update them manually.<br />
+Therefore enter the individual submodule and check the currently checked out commit with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>. If the commit the is same as logged in <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code> everything is fine. If not, fetch the latest state of the submodule and checkout the commit logged in <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code>. E.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>SUBMODULE
+git<span class="w"> </span>fetch
+git<span class="w"> </span>checkout<span class="w"> </span>COMMITSHA
+</pre></div>
+</div>
+<p>Also apply the patch files for all submodules similar as described above for the
+workflow (<code class="docutils literal notranslate"><span class="pre">GitDiffHead_workflow.diff</span></code>).</p>
+<p>Now the workflow is in the same state as it was while running the original simulation.</p>
+</section>
+<section id="build-the-model">
+<h3><span class="section-number">4.2.3. </span>Build the model<a class="headerlink" href="#build-the-model" title="Link to this heading"></a></h3>
+<p>To build the model (TSMP), follow the introductions in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file. As we restored the same version of the workflow as used for the original simulation, the instructions in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> are also the same.</p>
+</section>
+<section id="provide-forcing-files">
+<h3><span class="section-number">4.2.4. </span>Provide forcing files<a class="headerlink" href="#provide-forcing-files" title="Link to this heading"></a></h3>
+<p>Forcing files are not tracked due to their large storage volume. So contact the
+author named within the <code class="docutils literal notranslate"><span class="pre">HISTORY.txt</span></code> files and aske for the forcing files.</p>
+</section>
+<section id="re-run-the-simulation">
+<h3><span class="section-number">4.2.5. </span>Re-Run the simulation<a class="headerlink" href="#re-run-the-simulation" title="Link to this heading"></a></h3>
+<p>Finally you can rerun the simulation.<br />
+However, even if we set up the same workflow version as used during the original simulation, you have to manually adjust the <code class="docutils literal notranslate"><span class="pre">ctrl/starter.sh</span></code> file first, in particular setting the start date and number of simulations. This is needed because we can submit multiple simulations by just providing the start date of the first simulation and the number of how many simulations to run in total (see <a class="reference internal" href="../jobsubmission.html#job-submission"><span class="std std-ref">Job submission</span></a>. In this case the start date and the number of simulations to run does not have to match the simulation we want to re run. So you have to adjust.<br />
+If done, run <code class="docutils literal notranslate"><span class="pre">starter.sh</span></code> with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./starter.sh
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="NotFullyCoupledExp.html" class="btn btn-neutral float-left" title="3. Run not fully coupled experiments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maintenance.html" class="btn btn-neutral float-right" title="5. Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

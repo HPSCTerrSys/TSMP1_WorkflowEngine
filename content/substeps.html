@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Substeps &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Job Submission" href="jobsubmission.html" />
+    <link rel="prev" title="3. Directory Structure" href="directorystructure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Substeps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-processing">4.1. Pre-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">4.2. Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#post-processing">4.3. Post-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finishing">4.4. Finishing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Substeps</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/substeps.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="substeps">
+<h1><span class="section-number">4. </span>Substeps<a class="headerlink" href="#substeps" title="Link to this heading"></a></h1>
+<p>The essence of the workflow is to break up large experiments into several
+sub-steps, for a more robust and easier handling</p>
+<p>First, the experiment is split into several much shorter simulations, that
+e.g. a multi-decade climate experiment typically consists of several
+simulations, each covering a period of one month.<br />
+Second, the workflow further split each simulation into sub-steps, namely the
+<strong>pre-processing</strong>, the actual <strong>simulation</strong>, the <strong>post-processing</strong>, and the
+<strong>finishing</strong>, to increase the performance and to modularise the workflow as
+much as possible.</p>
+<section id="pre-processing">
+<h2><span class="section-number">4.1. </span>Pre-processing<a class="headerlink" href="#pre-processing" title="Link to this heading"></a></h2>
+<p>The pre-processing (prepro) sub-step is intended to encompass all tasks that
+need to be
+performed prior to the actual simulation and therefore usually includes the
+processing of the forcing data, which is highly individual. An example of this
+could be the resampling of the raw forcing data to the computational grid of the
+component model used.</p>
+</section>
+<section id="simulation">
+<h2><span class="section-number">4.2. </span>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h2>
+<p>The simulation sub-step is the core step of the workflow. Scripts in this step
+set up the run directory (<code class="docutils literal notranslate"><span class="pre">rundir</span></code>), run the simulation, clean up by moving the
+simulation results to the simulation results directory (<code class="docutils literal notranslate"><span class="pre">simres</span></code>), and log the
+exact workflow used to enable reproduction.</p>
+<p>In detail, an identifiable, individual run directory is created for each
+simulation as a subdirectory of <code class="docutils literal notranslate"><span class="pre">rundir/</span></code> to allow the user to run multiple
+simulations in parallel. Usually this subdirectory is named after the current
+simulation date, so if the monthly simulation for January in 1950 is run, the
+directory <code class="docutils literal notranslate"><span class="pre">rundir/19500101/</span></code> is created.<br />
+Then all the necessary files are copied to the run directory, such as the model
+executables, namelists, auxiliary files, restart files, and (some) static files.
+In turn, the raw model output from the model components is also dumped into the
+run directory.<br />
+The namlists are adapted according to the current simulation, by replacing
+predefined flags with the correct values. This could be the correct simulation
+date, for example, which varies from simulation to simulation, and the workflow
+takes care to set the correct values here.<br />
+Once everything is set up, the simulation is started.<br />
+After the simulation has finished, the raw model output is moved from the run
+directory to the simulation results directory (<code class="docutils literal notranslate"><span class="pre">simres</span></code>). Again, a subdirectory
+is created with the same name as the run directory. This is done to keep only
+the simulation results and to avoid storing e.g. big, redundant static files.
+Next to the simulation results, some log files are created to keep track of the
+exact workflow used, by logging the repository used, the commit, and a
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> of unstaged files. Further restart files are copied to a dedicated
+restart directory to allow the next simulation to start correctly.<br />
+Finally, the run directory is removed, as it is no longer needed, to keep the
+workflow directory structure clean.</p>
+</section>
+<section id="post-processing">
+<h2><span class="section-number">4.3. </span>Post-processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<p>The post-processing (postpro) step is used to provide higher level products
+than the raw
+model data. Examples include calculating variables that are not a direct output
+of the model (e.g. discharge for ParFlow), aggregating model output for defined
+time periods (e.g. writing monthly files), adding experiment specific metadata
+(e.g. CF-convention), storing output in a specific data structure (e.g.
+CMORized), or generating some quick insitu quality check plots for monitoring.
+Some of these tasks are quite mandatory, such as adding specific metadata to
+keep track of what is stored with the files and to make the data easily
+available to others. Other tasks are performed to save time. Because the
+post-processing step is performed immediately after the simulation and is a
+separate slurm job, time-consuming calculations could be performed here without
+losing performance of the entire experiment, compared to running simulation and
+post-processing in one job, or even running the post-processing after the entire
+experiment.</p>
+</section>
+<section id="finishing">
+<h2><span class="section-number">4.4. </span>Finishing<a class="headerlink" href="#finishing" title="Link to this heading"></a></h2>
+<p>The finishing substep is somewhat optional. In principle, all substeps are
+self-contained and will, for example, clean up temporarily generated data at the
+end of the specific substep. However, sometimes it is useful to execute some
+tasks after all other substeps. In this workflow those tasks are the checksum
+calculation and the compression.<br />
+So when all the previous tasks have been completed, the checksum of the
+generated data is calculated and is stored in a file within the same directory.
+This is done to allow the user to verify that the data is not corrupted. And
+this task is performed after all other substeps, simply for performance reasons,
+e.g. so that the next simulation can start, without waiting for the checksum to
+be calculated.<br />
+The compressing task is simply to compress the data in <code class="docutils literal notranslate"><span class="pre">simres/</span></code>, as these are
+no longer needed (post-processing is done) to prepare for archiving.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="directorystructure.html" class="btn btn-neutral float-left" title="3. Directory Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jobsubmission.html" class="btn btn-neutral float-right" title="5. Job Submission" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

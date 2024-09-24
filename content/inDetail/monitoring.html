@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Simulation Monitoring &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. CASES" href="cases.html" />
+    <link rel="prev" title="6. Auxiliary Scripts" href="../auxiliaryscripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Simulation Monitoring</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/inDetail/monitoring.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="simulation-monitoring">
+<h1><span class="section-number">1. </span>Simulation Monitoring<a class="headerlink" href="#simulation-monitoring" title="Link to this heading"></a></h1>
+<p>The monitoring functionality in this workflow is implemented using Python scripts located in the <code class="docutils literal notranslate"><span class="pre">ctrl/monitoring/</span></code> directory. These scripts enable the generation of monitoring plots based on simulation data and are called from inside <code class="docutils literal notranslate"><span class="pre">start_postpro.sh</span></code>. This way the monitoring plots are generated automatically for each sub-step of the simulation. The following is an example of how the script is called:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>monitoring_SanityCheck.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--configFile<span class="w"> </span>CONFIG_SanityCheck_postpro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dataRootDir<span class="w"> </span><span class="si">${</span><span class="nv">PostProStoreDir</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--saveDir<span class="w"> </span><span class="si">${</span><span class="nv">newMonitoringDir</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--runName<span class="w"> </span><span class="si">${</span><span class="nv">CaseID</span><span class="si">}</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>The call of the script includes the following parameters:</p>
+<p><code class="docutils literal notranslate"><span class="pre">configFile</span></code>: The path to the configuration file.<br />
+<code class="docutils literal notranslate"><span class="pre">dataRootDir</span></code>: The root directory to simulation results used for the monitoring plot.<br />
+<code class="docutils literal notranslate"><span class="pre">saveDir</span></code>: The directory where the final monitoring plots will be saved.<br />
+<code class="docutils literal notranslate"><span class="pre">runName</span></code>: A string that is displayed in the figure title for easier identification.</p>
+<p>To configure the monitoring plots according to specific requirements, a configuration file is used. The configuration file specifies the variables to be plotted and their corresponding output files. It also provides control over various aspects of plot appearance, including unit changes, value masking, and colormaps. This flexible configuration allows for easy addition or removal of plots based on monitoring needs. However, it is important to have familiarity with the simulation output in order to correctly set up the configuration file, such as understanding the units and dimensions of the input fields.<br />
+An example of such a config files is shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>template<span class="o">]</span>
+varName:<span class="w">    </span>None
+fileName:<span class="w">   </span>None
+unitsOrig:<span class="w">  </span>None
+unitsPlot:<span class="w">  </span>None
+unitCoef:<span class="w">   </span>None
+unitOffset:<span class="w"> </span>None
+Slices:<span class="w">     </span>None
+SanityKind:<span class="w"> </span>None
+maskBelow:<span class="w">  </span>None
+maskAbove:<span class="w">  </span>None
+cmapName:<span class="w">   </span>None<span class="w">  </span>
+valueRange:<span class="w"> </span>None
+
+<span class="o">[</span>DEFAULT<span class="o">]</span>
+cmapName:<span class="w">   </span>Spectral<span class="w">  </span>
+valueRange:<span class="w"> </span>None
+
+<span class="c1"># CLM</span>
+<span class="o">[</span>clm_RAIN<span class="o">]</span>
+varName:<span class="w">    </span>RAIN
+fileName:<span class="w">   </span>clm/RAIN.nc
+unitsOrig:<span class="w">  </span><span class="o">[</span>mm/s<span class="o">]</span>
+unitsPlot:<span class="w">  </span><span class="o">[</span>mm/h<span class="o">]</span>
+unitCoef:<span class="w">   </span><span class="m">3600</span>
+unitOffset:<span class="w"> </span>None
+Slices:<span class="w">     </span>None
+SanityKind:<span class="w"> </span>mean
+maskBelow:<span class="w">  </span>None
+maskAbove:<span class="w">  </span>1e35
+valueRange:<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">15</span><span class="w"> </span>
+cmapName:<span class="w">   </span>precip3_16lev
+
+<span class="c1"># ParFlow</span>
+<span class="o">[</span>pfl_evaptrans<span class="o">]</span>
+varName:<span class="w">    </span>evaptrans
+fileName:<span class="w">   </span>parflow/evaptrans.nc
+unitsOrig:<span class="w">  </span><span class="o">[</span><span class="m">1</span>/h<span class="o">]</span>
+unitsPlot:<span class="w">  </span><span class="o">[</span>mm<span class="o">]</span>
+unitCoef:<span class="w">   </span><span class="m">20</span>
+unitOffset:<span class="w"> </span>None
+Slices:<span class="w">     </span>None,<span class="w"> </span>-1
+SanityKind:<span class="w"> </span>sum
+maskBelow:<span class="w">  </span>-1e35
+maskAbove:<span class="w">  </span>None
+cmapName:<span class="w">   </span>GMT_no_green_r
+</pre></div>
+</div>
+<p>The configuration file consists of different sections, including <code class="docutils literal notranslate"><span class="pre">[template]</span></code>, <code class="docutils literal notranslate"><span class="pre">[default]</span></code>, <code class="docutils literal notranslate"><span class="pre">[clm_RAIN]</span></code>, and <code class="docutils literal notranslate"><span class="pre">[pfl_evaptrans]</span></code>, each representing an individual monitoring plot. The <code class="docutils literal notranslate"><span class="pre">[template]</span></code> and <code class="docutils literal notranslate"><span class="pre">[default]</span></code> sections have special purposes. The <code class="docutils literal notranslate"><span class="pre">[template]</span></code> section provides a template for adding new plots, and the <code class="docutils literal notranslate"><span class="pre">[default]</span></code> section holds default values that are applied to all sections unless overridden. But both are ignored for the actuall monitoring plots, that under the line above config files is generating monitoring plots <code class="docutils literal notranslate"><span class="pre">[clm_RAIN]</span></code> and <code class="docutils literal notranslate"><span class="pre">[pfl_evaptrans]</span></code>.</p>
+<p>Each section in the configuration file includes the following settings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">varName</span></code>: The variable name of the netCDF file used as the data source for the monitoring plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileName</span></code>: The netCDF file name, with a relative path from the <code class="docutils literal notranslate"><span class="pre">dataRootDir</span></code> passed as argument to the monitoring script. In this example the monitoring script is processing the file <code class="docutils literal notranslate"><span class="pre">${PostProStoreDir}/clm/RAIN.nc</span></code> and <code class="docutils literal notranslate"><span class="pre">${PostProStoreDir}/parflow/evaptrans.nc</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unitsOrig</span></code>: The original units of the variable (for informational purposes).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unitsPlot</span></code>: The desired units after unit conversion, which will be displayed in the plot title.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unitCoef</span></code>: The coefficient used to convert the units. For example, if the original units are [mm/s], a <code class="docutils literal notranslate"><span class="pre">unitCoef</span></code> of 3600 converts it to [mm/h].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unitOffset</span></code>: The offset used to convert the units. For example, if the original units are [K], a <code class="docutils literal notranslate"><span class="pre">unitOffset</span></code> of -275.15 converts it to [°C].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Slices</span></code>: Defines how to slice the source field before creating the monitoring plot. It allows working with multi-dimensional fields by selecting specific slices only. For example, <code class="docutils literal notranslate"><span class="pre">Slices</span> <span class="pre">None,-1</span></code> corresponds to the Python syntax <code class="docutils literal notranslate"><span class="pre">array[:,-1]</span></code>, which e.g. selects the surface layer of a 4D ParFlow output (time, z, y, x).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SanityKind</span></code>: Determines whether the lower-left subplot shows the mean or sum along the time axis of the source field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maskBelow</span></code>: Defines a lower value bound. Values below this threshold are masked out (before unit conversion!!).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maskAbove</span></code>: Defines an upper value bound. Values above this threshold are masked out (before unit conversion!!).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmapName</span></code>: Specifies the name of the Python colorbar to be used in the monitoring plot. Colormaps from <a class="reference external" href="https://github.com/pratiman-91/colormaps/tree/ce4320c85ba3eeef32f4c749d13b449540387c5a">colormaps</a> and the <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">official ones</a> are supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">valueRange</span></code>: Specifies the values range of the colorbar, by setting all bin values for the colorbar.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../auxiliaryscripts.html" class="btn btn-neutral float-left" title="6. Auxiliary Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cases.html" class="btn btn-neutral float-right" title="2. CASES" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

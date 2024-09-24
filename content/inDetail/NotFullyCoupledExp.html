@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Run not fully coupled experiments &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Reproduce Simulation" href="ReproduceSimulation.html" />
+    <link rel="prev" title="2. CASES" href="cases.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases.html">2. CASES</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Run not fully coupled experiments</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/inDetail/NotFullyCoupledExp.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="run-not-fully-coupled-experiments">
+<h1><span class="section-number">3. </span>Run not fully coupled experiments<a class="headerlink" href="#run-not-fully-coupled-experiments" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../gettingstarted.html"><span class="std std-doc">GettingStarted</span></a> section explains the workflow using a fully coupled TSMP as an example. For the sake of completeness, we’ll explain here how to run a not fully coupled experiment using this workflow as well.<br />
+However, the following lines assume that you have already run the fully coupled simulation from <a class="reference internal" href="../gettingstarted.html"><span class="std std-doc">GettingStarted</span></a>. If not, go back to that section and run the default example first.</p>
+<p>Running a not fully coupled experiment is not very different from running a fully coupled experiment. The main differences are</p>
+<ol class="arabic simple">
+<li><p>You have to build TSMP for the model combination you want.</p></li>
+<li><p>Not all static files / namelists need to be copied to the <code class="docutils literal notranslate"><span class="pre">rundir</span></code>.</p></li>
+<li><p>Different model combinations require different forcing files.</p></li>
+</ol>
+<p><strong>1.</strong> Building TSMP for different model combinations is quite simple and controlled by the <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># build TSMP as in default example but for clm3-pfl only</span>
+./build_tsmp.ksh<span class="w"> </span>--readclm<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--maxpft<span class="o">=</span><span class="m">4</span><span class="w"> </span>-c<span class="w"> </span>clm3-pfl<span class="w"> </span>-m<span class="w"> </span>JURECA<span class="w"> </span>-O<span class="w"> </span>Intel
+<span class="c1"># build TSMP as in default example but for pfl only</span>
+./build_tsmp.ksh<span class="w"> </span>--readclm<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--maxpft<span class="o">=</span><span class="m">4</span><span class="w"> </span>-c<span class="w"> </span>pfl<span class="w"> </span>-m<span class="w"> </span>JURECA<span class="w"> </span>-O<span class="w"> </span>Intel
+</pre></div>
+</div>
+<p><strong>2.</strong> You must inform the workflow which model components are involved by using the correct <code class="docutils literal notranslate"><span class="pre">COMBINATION</span></code> flag in <code class="docutils literal notranslate"><span class="pre">CASES.conf</span></code>. Depending on the <code class="docutils literal notranslate"><span class="pre">COMBINATION</span></code> flag, the workflow will automatically copy only the required static and namelist files, perform post-processing only for involved component models, etc.</p>
+<p><strong>3.</strong> According to the <code class="docutils literal notranslate"><span class="pre">COMBINATION</span></code> flag, the workflow automatically sets the forcing setting with the top model involved. This means that if <code class="docutils literal notranslate"><span class="pre">clm3-cos5-pfl</span></code> is run, COSMO is the top model and therefore COSMO needs forcing files, all other components see the forcing via the coupling. If <code class="docutils literal notranslate"><span class="pre">clm3-pfl</span></code> is run, CLM is the top model, so CLM will need forcing files, and ParFlow will see forcing via coupling. If <code class="docutils literal notranslate"><span class="pre">pfl</span></code> is run, ParFlow will need forcing files.<br />
+Technically, this is archived by keeping the name list very general and thus setting them up assuming the associated model needs forcing files. The workflow then simply deletes these lines if the component model does not need forcing. For an example <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/start_simulation.sh#L201-L203">see how related lines are deleted for the parflow namelist</a> when CLM is involved.</p>
+<p>The forcing files itself has to be provided by the user under the following paths:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># forcing for CLM</span>
+<span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/forcing/clm/atm_forcing/YYYY-MM.nc
+<span class="c1"># forcing for ParFlow</span>
+<span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/forcing/parflow/evaptrans_<span class="si">${</span><span class="nv">formattedStartDate</span><span class="si">}</span>.nc
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">YYYY-MM</span></code> is the year and month of the simulation start date, and
+<code class="docutils literal notranslate"><span class="pre">${formattedStartDate}</span></code> is the formatted start date of the simulation according to the <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/starter.sh#L21C1-L21C11">dateString set in starter.sh</a>.
+For the correct content and structure of the forcing file itself, we refere to the individual model manual.</p>
+<blockquote>
+<div><p><strong>IMPORTANT NOTE:</strong><br />
+Running ParFlow standalone build with TSMP does need a <a class="reference external" href="https://github.com/HPSCTerrSys/parflow/tree/ActivateEvapTransTSMP">patched / fixed ParFlow version</a>, where Evaptrans forcing is possible even without the <code class="docutils literal notranslate"><span class="pre">HAVECLM</span></code> compiler flag.</p>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cases.html" class="btn btn-neutral float-left" title="2. CASES" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ReproduceSimulation.html" class="btn btn-neutral float-right" title="4. Reproduce Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

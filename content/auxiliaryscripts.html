@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Auxiliary Scripts &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Simulation Monitoring" href="inDetail/monitoring.html" />
+    <link rel="prev" title="5. Job Submission" href="jobsubmission.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Auxiliary Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aux-migratefromscratch-sh">6.1. aux_MigrateFromScratch.sh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aux-untarmanytars-sh">6.2. aux_UnTarManyTars.sh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aux-restagetape-sh">6.3. aux_restageTape.sh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aux-gzip-sh-and-aux-gunzip-sh">6.4. aux_gzip.sh and aux_gunzip.sh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aux-sha512sum-sh">6.5. aux_sha512sum.sh</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Auxiliary Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/auxiliaryscripts.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="auxiliary-scripts">
+<h1><span class="section-number">6. </span>Auxiliary Scripts<a class="headerlink" href="#auxiliary-scripts" title="Link to this heading"></a></h1>
+<p>Sometimes you need to perform a task manually within the workflow. This may be
+because the workflow cannot perform the task automatically, such as migrating
+data to the archive, or for some other reason. As dealing with the data
+generated within the workflow is always a task of dealing with large datasets,
+this can be very time-consuming.<br />
+In many of the simulations that have been run using this workflow as a
+template, some of these tasks have recurred and we have written scripts to
+make them easier to perform. Below is a brief summary of the existing scripts
+to provide an overview.</p>
+<section id="aux-migratefromscratch-sh">
+<h2><span class="section-number">6.1. </span>aux_MigrateFromScratch.sh<a class="headerlink" href="#aux-migratefromscratch-sh" title="Link to this heading"></a></h2>
+<p>Since the workflow runs on compute nodes, it is not possible to automatically
+migrate simulation results to the tape archive, because the archive can only
+be accessed via login nodes at JSC.<br />
+So <code class="docutils literal notranslate"><span class="pre">aux_MigrateFromScratch.sh</span></code> migrates provided directories to a given target.
+Migrating in this context means:</p>
+<ul class="simple">
+<li><p>Pack source directory in a tar-ball</p></li>
+<li><p>Put tar-ball to target location</p></li>
+<li><p>Delete source directory</p></li>
+<li><p>Link new created tar-ball to source location</p></li>
+</ul>
+<p>Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># in the current shell</span>
+bash<span class="w"> </span>aux_MigrateFromScratch.sh<span class="w"> </span>PATH/TO/TARGET<span class="w"> </span>PATH/TO/SOURCES/WILDCARDS/ARE/POSSIBL*
+<span class="c1"># in the background</span>
+nohup<span class="w"> </span>bash<span class="w"> </span>aux_MigrateFromScratch.sh<span class="w"> </span>PATH/TO/TARGET<span class="w"> </span>PATH/TO/SOURCES/WILDCARDS/ARE/POSSIBL*<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</section>
+<section id="aux-untarmanytars-sh">
+<h2><span class="section-number">6.2. </span>aux_UnTarManyTars.sh<a class="headerlink" href="#aux-untarmanytars-sh" title="Link to this heading"></a></h2>
+<p>Complementary to migrating data to the archive, you can also extract data from
+the archive back to <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code> again. As the migration stores the data in
+tar-balls, you need to untar / unpack them.<br />
+So <code class="docutils literal notranslate"><span class="pre">aux_UnTarManyTars.sh</span></code> unpacks the provided tar-balls to a given target
+location.<br />
+Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># in the current shell</span>
+bash<span class="w"> </span>aux_UnTarManyTars.sh<span class="w"> </span>PATH/TO/TARGET<span class="w"> </span>PATH/TO/TARBALLS/WILDCARDS/ARE/POSSIBL*
+<span class="c1"># in the background</span>
+nohup<span class="w"> </span>bash<span class="w"> </span>aux_UnTarManyTars.sh<span class="w"> </span>PATH/TO/TARGET<span class="w"> </span>PATH/TO/TARBALLS/WILDCARDS/ARE/POSSIBL*<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</section>
+<section id="aux-restagetape-sh">
+<h2><span class="section-number">6.3. </span>aux_restageTape.sh<a class="headerlink" href="#aux-restagetape-sh" title="Link to this heading"></a></h2>
+<p>If the data was moved to the archive a long time ago, the related tape file
+may already be detached, physically unplugged, from the filesystem. This is
+common with tape archives, and the related tape must first be reactivated, so
+plugged back into the filesystem, in order to access the data. This process is
+started automatically when a file on that related tape is requested, but it
+can take some time. So if you need data that is no longer available on
+spinning disk, use <code class="docutils literal notranslate"><span class="pre">aux_restageTape.sh</span></code> to restage this data.<br />
+Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nohup<span class="w"> </span>bash<span class="w"> </span>aux_restageTape.sh<span class="w"> </span>PATH/TO/DATA/WILDCARDS/ARE/POSSIBL*<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</section>
+<section id="aux-gzip-sh-and-aux-gunzip-sh">
+<h2><span class="section-number">6.4. </span>aux_gzip.sh and aux_gunzip.sh<a class="headerlink" href="#aux-gzip-sh-and-aux-gunzip-sh" title="Link to this heading"></a></h2>
+<p>You may need to compress or uncompress data within the workflow. An example
+would be if you need to do some extra post-processing, but the data in
+<code class="docutils literal notranslate"><span class="pre">simres</span></code> is already compressed by the workflow. In this case you can use
+<code class="docutils literal notranslate"><span class="pre">gzip</span></code> or <code class="docutils literal notranslate"><span class="pre">gunzip</span></code>, but usually it’s a lot of data to process, which will
+take a long time.<br />
+So <code class="docutils literal notranslate"><span class="pre">aux_gunzip.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">aux_gzip.sh</span></code> does provide an auxiliary script to
+run <code class="docutils literal notranslate"><span class="pre">gzip</span></code> and <code class="docutils literal notranslate"><span class="pre">gunzip</span></code> on a computenode, using all available CPUs, thus
+increasing compression speed drastically.<br />
+Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># compressing</span>
+sbatch<span class="w"> </span>./aux_gzip.s<span class="w"> </span>TARGET/FILES/WILDCARDS/ARE/POSSIBL*
+<span class="c1"># uncompressing</span>
+sbatch<span class="w"> </span>./aux_gunzip.s<span class="w"> </span>TARGET/FILES/WILDCARDS/ARE/POSSIBL*
+</pre></div>
+</div>
+<p>Even if the above two scripts are quiet easy, they can be very powerfull. For
+example, can you imagine what the below call of <code class="docutils literal notranslate"><span class="pre">aux_gunzip.sh</span></code> is doing?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>aux_gunzip.sh<span class="w"> </span><span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/simres/ProductionV1/*/<span class="o">{</span>clm,cosmo,parflow<span class="o">}</span>/<span class="o">{</span>*/*,*<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="aux-sha512sum-sh">
+<h2><span class="section-number">6.5. </span>aux_sha512sum.sh<a class="headerlink" href="#aux-sha512sum-sh" title="Link to this heading"></a></h2>
+<p>You may need to (re)calculate the checksum for some or many of the data in
+the workflow. Then <code class="docutils literal notranslate"><span class="pre">aux_sha512sum.sh</span></code> simply allows you to run this calculation
+on a computenode to speed things up.<br />
+Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>./aux_sha512sum.sh<span class="w"> </span>TARGET/FILES/WILDCARDS/ARE/POSSIBL*
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jobsubmission.html" class="btn btn-neutral float-left" title="5. Job Submission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inDetail/monitoring.html" class="btn btn-neutral float-right" title="1. Simulation Monitoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

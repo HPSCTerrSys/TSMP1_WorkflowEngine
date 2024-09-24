@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. CASES &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Run not fully coupled experiments" href="NotFullyCoupledExp.html" />
+    <link rel="prev" title="1. Simulation Monitoring" href="monitoring.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>CASES</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/inDetail/cases.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="cases">
+<h1><span class="section-number">2. </span>CASES<a class="headerlink" href="#cases" title="Link to this heading"></a></h1>
+<p>To explain CASES within this workflow, let’s start with some more fundamental.</p>
+<p>In the philosophy of this workflow, a complete workflow repository is an experiment.
+This means for example that this repository (TSMP1_WorkflowEngine) with all its submodules, is an experiment.<br />
+An experiment is one or more (similar) simulations aimed at investigating a particular question, proving a particular hypothesis, or demonstrating a particular situation.
+Let’s say you want to run a climate simulation over the EUR-11 domain in fully coupled TSMP mode. So you set up a complete workflow repository like this one, give it a name and run your simulation - this is an experiment.<br />
+Next, your supervisor wants you to run a standalone ICON simulation over South Africa to investigate the potential for an offshore wind farm - this is another  experiment where you will set up a new complete workflow repository with a new appropriate name.<br />
+Two different simulations, two different workflow repositories, two experiments.<br />
+Now let’s assume a sensitivity study. You want to run a climate simulation over the EUR-11 domain in fully coupled TSMP mode and you want to know how sensitive this simulation is to soil porosity. You need to run several simulations for the full time period, each differing only in a few settings in the ParFlow namelist. Even though these are separate simulations, they belong to the same experiment and should be run within the same workflow repository. This is where CASES come in.</p>
+<p>CASES are different simulations within the same experiment.<br />
+Since there is only one <code class="docutils literal notranslate"><span class="pre">rundir</span></code>, one <code class="docutils literal notranslate"><span class="pre">namelist</span></code> directory, one <code class="docutils literal notranslate"><span class="pre">simres</span></code> directory, etc., the different CASES (the different simulations) have to be technically separated so that they do not interfere with each other - e.g. so that they do not overwrite each other. This is done with the <code class="docutils literal notranslate"><span class="pre">CASES.conf</span></code> file, which defines different subdirectories for each CASE. Which CASE to run is controlled within <code class="docutils literal notranslate"><span class="pre">starter.sh</span></code> with the flag <code class="docutils literal notranslate"><span class="pre">CaseID=&quot;MainRun&quot;</span></code>. For technical reasons, CASES are always used, even if only one simulation is run, but this is not a big deal.</p>
+<p>The technical functionality of CASES is actually quite simple. CASES takes advantage of the fact that all paths within this workflow are determined by the <code class="docutils literal notranslate"><span class="pre">export_paths.ksh</span></code> script, which is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expid</span><span class="o">=</span><span class="s2">&quot;TSMP1_WorkflowEngine&quot;</span>
+<span class="n">rootdir</span><span class="o">=</span><span class="s2">&quot;/PATH/TO/YOUR/EXPDIR/$</span><span class="si">{expid}</span><span class="s2">&quot;</span>
+<span class="n">export</span> <span class="n">EXPID</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{expid}</span><span class="s2">&quot;</span>
+<span class="c1"># export needed paths</span>
+<span class="n">export</span> <span class="n">BASE_ROOTDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">&quot;</span>
+<span class="n">export</span> <span class="n">BASE_CTRLDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl&quot;</span>
+<span class="n">export</span> <span class="n">BASE_EXTDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/externals&quot;</span>
+<span class="n">export</span> <span class="n">BASE_ENVSDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/envs&quot;</span>
+<span class="n">export</span> <span class="n">BASE_NAMEDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/namelists&quot;</span>
+<span class="n">export</span> <span class="n">BASE_LOGDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/logs&quot;</span>
+<span class="n">export</span> <span class="n">BASE_FORCINGDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/forcing&quot;</span>
+<span class="n">export</span> <span class="n">BASE_RUNDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/rundir&quot;</span>
+<span class="n">export</span> <span class="n">BASE_SIMRESDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/simres&quot;</span>
+<span class="n">export</span> <span class="n">BASE_GEODIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/geo&quot;</span>
+<span class="n">export</span> <span class="n">BASE_POSTPRODIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/postpro&quot;</span>
+<span class="n">export</span> <span class="n">BASE_MONITORINGDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/monitoring&quot;</span>
+<span class="n">export</span> <span class="n">BASE_SRCDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/src&quot;</span>
+</pre></div>
+</div>
+<p>So for example, if any script in this workflow needs to copy a forcing file, it will use the <code class="docutils literal notranslate"><span class="pre">$BASE_FORCINGDIR</span></code> variable to access the <code class="docutils literal notranslate"><span class="pre">.../forcing/</span></code> directory. The same does apply if any script needs to load an environment file, it will use the <code class="docutils literal notranslate"><span class="pre">$BASE_ENVSDIR</span></code> variable to access the <code class="docutils literal notranslate"><span class="pre">.../ctrl/envs/</span></code> directory, where the environment files are stored. And so forth.</p>
+<p>CASES will now expand these base directories by the relative path set in <code class="docutils literal notranslate"><span class="pre">CASES.conf</span></code>. See below for an example <code class="docutils literal notranslate"><span class="pre">CASES.conf</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">MainRun</span><span class="p">]</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">CALENDAR</span><span class="o">=</span><span class="s2">&quot;365_day&quot;</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s1">&#39;production&#39;</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">FORCINGDIR</span> <span class="o">=</span> <span class="o">/</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">RUNDIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">SIMRESDIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">POSTPRODIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">MONITORINGDIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">NAMEDIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">MainRun</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">GEODIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">TSMP_EUR</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">static</span>
+    <span class="n">CASE</span><span class="o">-</span><span class="n">COMBINATION</span> <span class="o">=</span> <span class="s2">&quot;clm3-cos5-pfl&quot;</span>
+</pre></div>
+</div>
+<p>The CASE defined here is <code class="docutils literal notranslate"><span class="pre">MainRun</span></code> - the default case. So when the `MainRun’ CASE is run, all base paths are extended by the above relative paths, resulting in</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_FORCINGDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/forcing&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/forcing/”</span>
+<span class="n">BASE_RUNDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/rundir&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/rundir/MainRun&quot;</span> 
+<span class="n">BASE_SIMRESDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/simres&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/simres/MainRun&quot;</span>
+<span class="n">BASE_POSTPRODIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/postpro&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/postpro/MainRun&quot;</span>
+<span class="n">BASE_MONITORINGDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/monitoring&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/monitoring/MainRun&quot;</span>
+<span class="n">BASE_NAMEDIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/namelists&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/ctrl/namelists/MainRun&quot;</span>
+<span class="n">BASE_GEODIR</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/geo&quot;</span> <span class="o">&gt;&gt;</span> <span class="s2">&quot;$</span><span class="si">{rootdir}</span><span class="s2">/geo/TSMP_EUR-11/static&quot;</span>
+</pre></div>
+</div>
+<p>The actual expansion of the base paths is done by the function <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/start_helper.sh#L158C1-L191">updatePathsForCASES()</a> which is called in <a class="reference external" href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/starter.sh#L108">starter.sh</a>.</p>
+<p>If any script in the workflow then wants to store files in the <code class="docutils literal notranslate"><span class="pre">simres/</span></code> directory, it uses the <code class="docutils literal notranslate"><span class="pre">$BASE_SIMRESDIR</span></code> variable to store the data in <code class="docutils literal notranslate"><span class="pre">${rootdir}/simres/MainRun</span></code>. If different CASES point to different subdirectories, this prevents the simulation from interfering with each other and allows multiple simulations from different CASES to run in parallel.<br />
+You will notice that <code class="docutils literal notranslate"><span class="pre">$BASE_FORCINGDIR</span></code> is not extended, which is a way of allowing different CASES to use the same forcing.
+Going back to the sensitivity study example, you would use a similar CASE structure to MainRun above. All simulations share the same geo files, the same forcing, but different namelists and different directories to store the output.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="monitoring.html" class="btn btn-neutral float-left" title="1. Simulation Monitoring" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="NotFullyCoupledExp.html" class="btn btn-neutral float-right" title="3. Run not fully coupled experiments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

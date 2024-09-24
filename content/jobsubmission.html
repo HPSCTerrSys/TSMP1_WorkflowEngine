@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Job Submission &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Auxiliary Scripts" href="auxiliaryscripts.html" />
+    <link rel="prev" title="4. Substeps" href="substeps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="substeps.html">4. Substeps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Job Submission</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/jobsubmission.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="job-submission">
+<h1><span class="section-number">5. </span>Job Submission<a class="headerlink" href="#job-submission" title="Link to this heading"></a></h1>
+<p>In principle, this workflow treats the actual experiment as one big chain job
+– so individual jobs are executed one after another with different dependencies.
+The configuration of the submission of this chain job is done in the
+<code class="docutils literal notranslate"><span class="pre">ctrl/starter.sh</span></code> file. At a first glance this may seem a bit complex, that the
+figure below should help you to understand the different terminology used.</p>
+<p><a class="reference download internal" download="" href="../_downloads/e001cd55ceadc67701407b712e3162b8/JobSubmission.png"><span class="xref download myst"><img alt="JobSubmission overview" src="../_images/JobSubmission.png" /></span></a></p>
+<p>So the whole experiment (lets assume a climate simulation from 1950 to 2100)
+consists of several jobs. Each job does runs a specific substep for several
+months. Dependencies between these jobs are indicated by arrows.<br />
+For example, the job containing the <code class="docutils literal notranslate"><span class="pre">simulation</span></code> for Jan. and Feb. 1950 cannot
+start before the job containing the <code class="docutils literal notranslate"><span class="pre">prepro</span></code> for the same months has finished.
+Furthermore, the jobs that contain the <code class="docutils literal notranslate"><span class="pre">prepro</span></code> substeps do not see any
+dependency, so all these jobs can run in parallel. This type of dependency
+ensures that the jobs containing the <code class="docutils literal notranslate"><span class="pre">simulation</span></code> substeps, the most
+computetime intense substep, run in sequence and do not wait for  other
+processes than really needed. Jobs containing subsequent substeps will run in
+parallel with the <code class="docutils literal notranslate"><span class="pre">simulation</span></code> job, once the dependency has been satisfied.
+This is done to ‘offload’ as much compute-power as possible from the actual
+simulation job in order to increase the performance of the overall experiment.</p>
+<p>Combining multiple substeps into a single job - in the image above running
+simulations for two months in one job - is one approach to making the most
+efficient use of HPC resources. Jobs on an HPC system are not executed
+directly, but sent to a job scheduler, which manages which job to run at what
+time on which compute node. So you have to wait for your job to run until your
+job is first in a long queue of jobs. The starting position in this queue is
+determined not only by the time of submission, but also by a priority system.
+At JSC, this system prioritizes big jobs, because that is what JSC systems are
+built for. So to increase the size of our jobs, we collect e.g. several months
+in one job to increase the job priority and to reduce queueing time.</p>
+<p>Below is an example of how to control all this in the <code class="docutils literal notranslate"><span class="pre">ctrl/starter.sh</span></code> file.<br />
+Let’s assume we want to run the months Jan. to Apr. of 1950, and to increase
+priority of our jobs, we want to collect two months in one job. So, in
+principle, replicate the first two columns in the image above. To do so, we
+need to set the following in <code class="docutils literal notranslate"><span class="pre">ctrl/starter.sh</span></code>:</p>
+<ul class="simple">
+<li><p>We need to set <code class="docutils literal notranslate"><span class="pre">simLength='1</span> <span class="pre">month'</span></code> because we want a <code class="docutils literal notranslate"><span class="pre">simulation</span></code>
+substep to simulate one month. In principle you can also set this to <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">days</span></code>
+or <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">months</span></code> etc. to individually change the simulation length of a
+<code class="docutils literal notranslate"><span class="pre">simulation</span></code> substep.</p></li>
+<li><p>We need to set <code class="docutils literal notranslate"><span class="pre">startDate=&quot;1950-01-01T00:00Z&quot;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">initDate=&quot;1950-01-01T00:00Z&quot;</span></code>, as we want to start with Jan. 1950. The
+<code class="docutils literal notranslate"><span class="pre">initDate</span></code> thereby indicates when the experiment starts and does not change
+during the whole experiment. The <code class="docutils literal notranslate"><span class="pre">startDate</span></code> indicates when the current job
+should start, and therefore changes with each job you submit. For the first
+job submitted in an experiment, both are equal, as in our case.</p></li>
+<li><p>We need to set <code class="docutils literal notranslate"><span class="pre">NoS=4</span></code>, as we want to submit 4 <code class="docutils literal notranslate"><span class="pre">simulation</span></code> substeps.
+As we  set <code class="docutils literal notranslate"><span class="pre">simLength='1</span> <span class="pre">month'</span></code> before, we do simulate 4 months with this
+setting.</p></li>
+<li><p>We need to set <code class="docutils literal notranslate"><span class="pre">simPerJob=2</span></code>, as we want to collect two <code class="docutils literal notranslate"><span class="pre">simulation</span></code>
+substeps in one job, to increase the priority.</p></li>
+</ul>
+<p>With this information, the workflow groups all substeps and submits the
+required jobs with all necessary dependencies.</p>
+<p>A small note on the naming / wording used:<br />
+As the core of all substeps is the <code class="docutils literal notranslate"><span class="pre">simulation</span></code> substep, the terminology is
+based on this. So we set a <code class="docutils literal notranslate"><span class="pre">simLength</span></code> (simulation length), but this is also
+affecting the other substeps as <code class="docutils literal notranslate"><span class="pre">prepro</span></code>, <code class="docutils literal notranslate"><span class="pre">postpro</span></code>, and <code class="docutils literal notranslate"><span class="pre">finishing</span></code>. Further we
+set <code class="docutils literal notranslate"><span class="pre">NoS</span></code> (<strong>N</strong>umber <strong>o</strong>f <strong>S</strong>imulations), but also determine the number of
+<code class="docutils literal notranslate"><span class="pre">postpro</span></code>, and <code class="docutils literal notranslate"><span class="pre">finishing</span></code> substeps etc. Similar for <code class="docutils literal notranslate"><span class="pre">simPerJob</span></code>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="substeps.html" class="btn btn-neutral float-left" title="4. Substeps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auxiliaryscripts.html" class="btn btn-neutral float-right" title="6. Auxiliary Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Getting Started &mdash; TSMP1_WorkflowEngine  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Directory Structure" href="directorystructure.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TSMP1_WorkflowEngine
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-the-tsmp1-workflowengine">2.1. Set up the TSMP1_WorkflowEngine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provide-restart-files">2.2. Provide restart files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provide-forcing-boundary-files">2.3. Provide forcing (boundary) files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-a-simulation">2.4. Start a simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-a-simulation-with-gpu-or-msa">2.5. Start a simulation with GPU or MSA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">2.6. Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-not-full-coupled-mode">2.7. Running not full coupled mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directorystructure.html">3. Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="substeps.html">4. Substeps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobsubmission.html">5. Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliaryscripts.html">6. Auxiliary Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">InDetail:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/monitoring.html">1. Simulation Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/cases.html">2. CASES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/NotFullyCoupledExp.html">3. Run not fully coupled experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/ReproduceSimulation.html">4. Reproduce Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/maintenance.html">5. Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/HowToContribute.html">6. How to contribute to the documentation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inDetail/FAQ.html">7. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSMP1_WorkflowEngine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/doc/content/gettingstarted.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
+<h1><span class="section-number">2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<section id="set-up-the-tsmp1-workflowengine">
+<h2><span class="section-number">2.1. </span>Set up the TSMP1_WorkflowEngine<a class="headerlink" href="#set-up-the-tsmp1-workflowengine" title="Link to this heading"></a></h2>
+<p><strong>First</strong>, clone this repository into your project-directory with its
+dependencies marked with git-submodules,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PROJECT_DIR</span>
+git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine.git
+</pre></div>
+</div>
+<p>and export the root path of the cloned repository to an environment variable for later use.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PROJECT_DIR</span>/TSMP1_WorkflowEngine
+<span class="nb">export</span><span class="w"> </span><span class="nv">BASE_ROOT</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note</strong>:
+If for any reason one of the submodule is not cloned correctly, you can
+reenforce and update by typing
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span> <span class="pre">update</span> <span class="pre">--init</span> <span class="pre">--recursive</span> <span class="pre">--</span> <span class="pre">&lt;submodule_name&gt;</span></code>
+from the workflow root directory.</p>
+</div></blockquote>
+<p><strong>Second</strong>, get TSMP ready by cloning all component models (COSMO, ParFlow,
+CLM, and Oasis) into <code class="docutils literal notranslate"><span class="pre">src/TSMP/</span></code>,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/src/TSMP
+<span class="nb">export</span><span class="w"> </span><span class="nv">TSMP_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://icg4geo.icg.kfa-juelich.de/ModelSystems/tsmp_src/cosmo5.01_fresh.git<span class="w">  </span>cosmo5_1
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>UseMaskNc<span class="w"> </span>https://github.com/HPSCTerrSys/parflow.git<span class="w">                       </span>parflow
+git<span class="w"> </span>clone<span class="w"> </span>https://icg4geo.icg.kfa-juelich.de/ModelSystems/tsmp_src/clm3.5_fresh.git<span class="w">     </span>clm3_5
+git<span class="w"> </span>clone<span class="w"> </span>https://icg4geo.icg.kfa-juelich.de/ModelSystems/tsmp_src/oasis3-mct.git<span class="w">       </span>oasis3-mct
+</pre></div>
+</div>
+<p>and build the binaries.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TSMP_DIR</span>/bldsva
+./build_tsmp.ksh<span class="w"> </span>--readclm<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--maxpft<span class="o">=</span><span class="m">4</span><span class="w"> </span>-c<span class="w"> </span>clm3-cos5-pfl<span class="w"> </span>-m<span class="w"> </span>JURECA<span class="w"> </span>-O<span class="w"> </span>Intel
+</pre></div>
+</div>
+<p><strong>Third</strong>, install <code class="docutils literal notranslate"><span class="pre">int2lm</span></code> which is used to prepare the <code class="docutils literal notranslate"><span class="pre">COSMO</span></code> forcing needed
+during the actual simulation. <code class="docutils literal notranslate"><span class="pre">int2lm</span></code> is provided as a submodule and can be
+found in <code class="docutils literal notranslate"><span class="pre">src/int2lm3.00/</span></code>.
+To build <code class="docutils literal notranslate"><span class="pre">int2lm</span></code> change to its directory and prepare the <code class="docutils literal notranslate"><span class="pre">Fopts</span></code> and <code class="docutils literal notranslate"><span class="pre">loadenv</span></code>
+file. You find predefined files in <code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>, which you can simply link to the
+<code class="docutils literal notranslate"><span class="pre">int2lm</span></code> rootdir:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/src/int2lm3.00/<span class="w">                                                     </span>
+ln<span class="w"> </span>-sf<span class="w"> </span>LOCAL/JUWELS_Fopts<span class="w"> </span>./Fopts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>LOCAL/JUWELS_Stage2020_loadenv<span class="w"> </span>./loadenv
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong>
+<code class="docutils literal notranslate"><span class="pre">Fopts</span></code> and <code class="docutils literal notranslate"><span class="pre">loadenv</span></code> are generic enough to work on both <code class="docutils literal notranslate"><span class="pre">JUWELS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">JURECA</span></code>, so stick with them on both machines for now.</p>
+</div></blockquote>
+<p>After preparation, source the environment, clean up the installation directory,
+and compile the source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/src/int2lm3.00/<span class="w">                                                      </span>
+<span class="nb">source</span><span class="w"> </span>loadenv<span class="w">                                                                  </span>
+make<span class="w"> </span>clean<span class="w">                                                                      </span>
+make<span class="w">                                                                            </span>
+</pre></div>
+</div>
+<p>When no error is thrown, a binary called <code class="docutils literal notranslate"><span class="pre">int2lm3.00</span></code> is created.</p>
+<p><strong>Finally</strong>, adapt <code class="docutils literal notranslate"><span class="pre">ctrl/export_paths.ksh</span></code> to correctly determine the root
+directory of this workflow and <code class="docutils literal notranslate"><span class="pre">SimInfo.sh</span></code> to set the correct author
+information:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$BASE_ROOT</span>/ctrl
+vi<span class="w"> </span>export_paths.ksh
+vi<span class="w"> </span>SimInfo.sh
+</pre></div>
+</div>
+<p>Within <code class="docutils literal notranslate"><span class="pre">export_paths.ksh</span></code> change the line</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">rootdir</span><span class="o">=</span><span class="s2">&quot;/PATH/TO/YOUR/EXPDIR/</span><span class="si">${</span><span class="nv">expid</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>according to you <code class="docutils literal notranslate"><span class="pre">$PROJECT_DIR</span></code> from above. To verify <code class="docutils literal notranslate"><span class="pre">rootdir</span></code> is set properly
+do<br />
+<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">$BASE_ROOT/ctrl/export_paths.ksh</span> <span class="pre">&amp;&amp;</span> <span class="pre">echo</span> <span class="pre">&quot;$rootdir&quot;</span> <span class="pre">&amp;&amp;</span> <span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">$rootdir</span></code>.<br />
+You should see the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PATH/TO/YOUR/PROJECT
+ctrl/
+doc/
+forcing/
+geo/
+LICENSE
+monitoring/
+postpro/
+README.md
+rundir/
+simres/
+src/
+</pre></div>
+</div>
+<p>Within <code class="docutils literal notranslate"><span class="pre">SimInfo.sh</span></code> change the lines</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">AUTHOR_NAME</span><span class="o">=</span><span class="s2">&quot;AUTHOR NAME&quot;</span><span class="w"> </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AUTHOR_MAIL</span><span class="o">=</span><span class="s2">&quot;AUTHOR EMAIL&quot;</span><span class="w"> </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AUTHOR_INSTITUTE</span><span class="o">=</span><span class="s2">&quot;INSTITUTE&quot;</span>
+</pre></div>
+</div>
+<p>Those infromation are used to be loged and saved with the simulation results and
+the email is used to send <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> notifications.</p>
+<p>The setup is now complete, and can be run after providing proper restart and
+forcing files.</p>
+</section>
+<section id="provide-restart-files">
+<h2><span class="section-number">2.2. </span>Provide restart files<a class="headerlink" href="#provide-restart-files" title="Link to this heading"></a></h2>
+<p>To continue a simulation, restart-files are needed to define the initial
+state of the simulation. Since large simulations (simulation period of years /
+several decades), such as we are aiming for, are usually calculated as a
+sequence of shorter simulations (simulation period of days / months), each
+simulation represents a restart of the previous simulation. Therefore, restart
+files must be provided for each component and simulation.</p>
+<p>Within this workflow, the component models expect the individual restart files
+to be located at:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$BASE_ROOT</span>/rundir/MainRun/restarts/COMPONENT_MODEL
+</pre></div>
+</div>
+<p>During the normal course of this workflow, the restart files are automatically
+placed there. Only for the very first simulation the user has to provide
+restart files manually to initialise the simulation. Therefore it is important
+to know that COSMO is able to run without restart files, than running a
+cold-start, while CLM and ParFlow always expect restart-files. So the user
+needs to provide restart-files for ParFlow and CLM only.</p>
+<p>In this example, we do run a simulation over the EUR-11 domain for the year
+1979, for which restart files could be taken from JSC machines. If needed, do
+request access to the related data project via
+<a class="reference external" href="https://judoor.fz-juelich.de/login">JuDoor</a>. The relevant data is stored under:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts
+</pre></div>
+</div>
+<p>To make the restart files available to the workflow, go to the restart
+directory and copy the restart files there:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$BASE_ROOT</span>/rundir/MainRun/restarts
+<span class="c1"># copy CLM restart file</span>
+cp<span class="w"> </span>-r<span class="w"> </span>/p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts/clm<span class="w"> </span>./
+<span class="c1"># copy ParFlow restart file</span>
+cp<span class="w"> </span>-r<span class="w"> </span>/p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts/parflow<span class="w"> </span>./
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>NOTE</strong>:
+ParFlow needs the previous model-outpt as a restart-file, whereas CLM needs a
+special restart-file from the current time-step. This is why the date within
+the file name is different for CLM and ParFlow.</p>
+</div></blockquote>
+</section>
+<section id="provide-forcing-boundary-files">
+<h2><span class="section-number">2.3. </span>Provide forcing (boundary) files<a class="headerlink" href="#provide-forcing-boundary-files" title="Link to this heading"></a></h2>
+<p>COSMO is a local model, simulating only a subdomain of the globe, and therefore
+needs to be informed about incoming meteorological conditions passing the
+domain boundary (as e.g. low pressure systems). This is done using local boundary
+files (<code class="docutils literal notranslate"><span class="pre">lbf</span></code> for short). At the same time, the status quo of the atmosphere is
+needed for the first time step (not to be confused with restart files!). In
+the meteorological domain this status quo is called ‘analysis’, wherefore this
+information is passed to COSMO with so called ‘local analysis files’  (<code class="docutils literal notranslate"><span class="pre">laf</span></code> for
+short).<br />
+These two types of boundary files must to be provided for each simulation and
+are expected by the workflow under:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$BASE_ROOT</span>/forcing/laf_lbfd/all
+</pre></div>
+</div>
+<p>In the pre-processing step of this workflow the <code class="docutils literal notranslate"><span class="pre">laf_lbfd</span></code> files are generated
+by <code class="docutils literal notranslate"><span class="pre">INT2LM</span></code> automatically wherefore on has to provide the raw meterological data
+only, which could be taken from JSC machines. If needed, do request access to
+the data project via <a class="reference external" href="https://judoor.fz-juelich.de/login">JuDoor</a>. The raw
+forcing data are stored under:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/p/largedata2/detectdata/CentralDB/era5/
+</pre></div>
+</div>
+<p>To make the raw forcing files available to the workflow, go to the forcing
+directory and link the directory from above there:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">BASE_ROOT</span><span class="si">}</span>/forcing
+ln<span class="w"> </span>-sf<span class="w"> </span>/p/largedata2/detectdata/CentralDB/era5/<span class="w"> </span>./cafFilesIn
+</pre></div>
+</div>
+</section>
+<section id="start-a-simulation">
+<h2><span class="section-number">2.4. </span>Start a simulation<a class="headerlink" href="#start-a-simulation" title="Link to this heading"></a></h2>
+<p>To start a simulation simply execute <code class="docutils literal notranslate"><span class="pre">starter.sh</span></code> from <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$BASE_ROOT</span>/ctrl
+<span class="c1"># adjust according to you need between </span>
+<span class="c1"># &#39;Adjust according to your need BELOW&#39;</span>
+<span class="c1"># and</span>
+<span class="c1"># &#39;Adjust according to your need ABOVE&#39;</span>
+vi<span class="w"> </span>./starter.sh<span class="w"> </span>
+<span class="c1"># start the simulation</span>
+./starter.sh<span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="start-a-simulation-with-gpu-or-msa">
+<h2><span class="section-number">2.5. </span>Start a simulation with GPU or MSA<a class="headerlink" href="#start-a-simulation-with-gpu-or-msa" title="Link to this heading"></a></h2>
+<p>Currently, the branch <code class="docutils literal notranslate"><span class="pre">msa_update</span></code> includes the necessary adaptions to use the
+workflow with ParFlow running on internal GPUs (GPU) and on the JUWELS-Booster
+(MSA).
+To use the functionality, ParFlow has to be compiled for GPU in the <code class="docutils literal notranslate"><span class="pre">TSMP/bldsva</span></code>
+folder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./build_tsmp.ksh<span class="w"> </span>--readclm<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--maxpft<span class="o">=</span><span class="m">4</span><span class="w"> </span>-c<span class="w"> </span>clm3-cos5-pfl<span class="w"> </span>-m<span class="w"> </span>JUWELS<span class="w"> </span>-O<span class="w"> </span>Intel<span class="w"> </span>-A<span class="w"> </span>GPU
+</pre></div>
+</div>
+<p>After the compilation, rename the ParFlow and the binaries folder.
+Use <code class="docutils literal notranslate"><span class="pre">_GPU</span></code> as an appendix for internal GPU runs and <code class="docutils literal notranslate"><span class="pre">_MSA</span></code> for cross-cluster
+submissions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>TSMP/parflow_JUWELS_clm3-cos5-pfl/<span class="w"> </span>TSMP/parflow_JUWELS_clm3-cos5-pfl_GPU/
+mv<span class="w"> </span>TSMP/bin/JUWELS_clm3-cos5-pfl/<span class="w"> </span>TSMP/bin/JUWELS_clm3-cos5-pfl_GPU/
+</pre></div>
+</div>
+<p>In the branch <code class="docutils literal notranslate"><span class="pre">msa_update</span></code> <code class="docutils literal notranslate"><span class="pre">starter.sh</span></code> has new functionalities
+(choice of GPU partition, etc..:).
+Have look at them before you start the simulation. If you are ready submit the
+simulation with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./starter.sh<span class="w"> </span>GPU
+or
+./starter.sh<span class="w"> </span>MSA
+</pre></div>
+</div>
+<p>Note: GPU and MSA submissions are experimental. ParFlow tends to not probably
+terminate in GPU-runs compiled with Intel. MSA-runs on the JUWELS-Booster have
+problems with the Hypre library which is as a default used for simulations on
+EUR-11.</p>
+</section>
+<section id="exercice">
+<h2><span class="section-number">2.6. </span>Exercice<a class="headerlink" href="#exercice" title="Link to this heading"></a></h2>
+<p>To become a little bit famillar with this workflow, work on the following tasks:</p>
+<ol class="arabic simple">
+<li><p>Do simulate the compleat year of 1979.</p></li>
+<li><p>Plot a time serie of the spatial averaged 2m temperature for 1979.</p></li>
+<li><p>Write down which information / data / files you might think are needed to
+repoduce the simulation.</p></li>
+<li><p>Think about how you could check the simulation is running fine during
+runtime.</p></li>
+</ol>
+</section>
+<section id="running-not-full-coupled-mode">
+<h2><span class="section-number">2.7. </span>Running not full coupled mode<a class="headerlink" href="#running-not-full-coupled-mode" title="Link to this heading"></a></h2>
+<p>The example above is for the fully coupled TSMP, but other model combinations can be run using this workflow as well. What to look out for when running in other than fully coupled mode can be read in the section <a class="reference internal" href="inDetail/NotFullyCoupledExp.html"><span class="std std-doc">‘Run not fully coupled experiments’</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="directorystructure.html" class="btn btn-neutral float-right" title="3. Directory Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Niklas WAGNER.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
