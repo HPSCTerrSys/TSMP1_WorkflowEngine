@@ -1,19 +1,19 @@
 # Getting Started 
 
-## Set up the TSMP_WorkflowGettingStarted
+## Set up the TSMP1_WorkflowEngine
 
 **First**, clone this repository into your project-directory with its 
 dependencies marked with git-submodules, 
 
 ``` bash
 cd $PROJECT_DIR
-git clone --recurse-submodules https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted.git
+git clone --recurse-submodules https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine.git
 ```
 
 and export the root path of the cloned repository to an environment variable for later use.
 
 ``` bash
-cd $PROJECT_DIR/TSMP_WorkflowGettingStarted
+cd $PROJECT_DIR/TSMP1_WorkflowEngine
 export BASE_ROOT=$(pwd)
 ```
 

@@ -68,7 +68,7 @@ By default, sphinx provides a `View page source` button in the top right corner 
 html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "HPSCTerrSys", # Username
-    "github_repo": "TSMP_WorkflowGettingStarted", # Repo name
+    "github_repo": "TSMP1_WorkflowEngine", # Repo name
     "github_version": "main", # Version
     "conf_py_path": "/doc/", # Path in the checkout to the docs root
 }
@@ -81,7 +81,7 @@ Below is an example of an `index.rst` file with a screenshot of the generated ta
 > **To be Noted:**   
 > The actual text in the rendered TOC (such as `1. Introduction` or `1. Simulation Monitoring`) is taken from the headline of the associated markdown file, even if the file names are identical by chance!
 ``` bash
-TSMP_WorkflowGettingStarted
+TSMP1_WorkflowEngine
 ===========================
 
 .. toctree::
@@ -113,7 +113,7 @@ TSMP_WorkflowGettingStarted
 
 At their core, GitHub Pages are static websites hosted by GitHub and filled with content provided by a repository. With GitHub Pages, the user does not have to worry about the technicalities of hosting websites. All you need to do is provide the website content in a supported format. GitHub Pages are disabled by default, and must be enabled in the repository settings. GitHub pages are free, but require a public repository.
 
-For this documentation, we have chosen to deploy the GitHub page from an extra branch, which means that we provide the content of the website from a separate branch of the relevant repository. If you look at the repository you will see that there are at least two branches. The [`main` branch](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/tree/main) and a [`gh-pages` branch](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/tree/gh-pages). The `gh-pages` branch is automatically created when you enable GitHub Pages, and is a special form of a branch, because it does not contain any content from the repository itself.  In our case, the `gh-pages` branch only contains the output of sphinx rendering, so the content of the website.   
+For this documentation, we have chosen to deploy the GitHub page from an extra branch, which means that we provide the content of the website from a separate branch of the relevant repository. If you look at the repository you will see that there are at least two branches. The [`main` branch](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/main) and a [`gh-pages` branch](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/gh-pages). The `gh-pages` branch is automatically created when you enable GitHub Pages, and is a special form of a branch, because it does not contain any content from the repository itself.  In our case, the `gh-pages` branch only contains the output of sphinx rendering, so the content of the website.   
 Rendering the website and filling the `gh-pages` branch is automated using GitHub workflows, which are explained in the following section [GitHub workflows](#github-workflows-cicd). 
 The following screenshot shows all the settings needed to enable GitHub pages:
 [![ScreenshotTableOfContent](./ScreenshotSettingGitHubPages.png)](./ScreenshotSettingGitHubPages.png)
@@ -125,7 +125,7 @@ These processing chains / workflows are defined in YAML files as a kind of abstr
 
 > When event A is triggered, execute job B, which consists of steps C, D, and E.  
 
-These workflows can be as complex as you like by combining many and nested job-steps, which makes them very powerful! Each YAML file is a workflow, and you can have many workflows running in parallel with your repository, each for a different task. In order to be recognised as a workflow by GitHub, the YAML files must be saved under [`.github/workflows`](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/tree/main/.github/workflows).
+These workflows can be as complex as you like by combining many and nested job-steps, which makes them very powerful! Each YAML file is a workflow, and you can have many workflows running in parallel with your repository, each for a different task. In order to be recognised as a workflow by GitHub, the YAML files must be saved under [`.github/workflows`](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/tree/main/.github/workflows).
 
 This repository contains three workflows, all aimed at rendering and deploying this documentation, but with slight differences depending on the triggering event.
 

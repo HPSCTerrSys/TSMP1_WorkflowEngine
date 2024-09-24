@@ -3,7 +3,7 @@
 To explain CASES within this workflow, let's start with some more fundamental.    
 
 In the philosophy of this workflow, a complete workflow repository is an experiment. 
-This means for example that this repository (TSMP_WorkflowGettingStarted) with all its submodules, is an experiment.    
+This means for example that this repository (TSMP1_WorkflowEngine) with all its submodules, is an experiment.    
 An experiment is one or more (similar) simulations aimed at investigating a particular question, proving a particular hypothesis, or demonstrating a particular situation.
 Let's say you want to run a climate simulation over the EUR-11 domain in fully coupled TSMP mode. So you set up a complete workflow repository like this one, give it a name and run your simulation - this is an experiment.     
 Next, your supervisor wants you to run a standalone ICON simulation over South Africa to investigate the potential for an offshore wind farm - this is another  experiment where you will set up a new complete workflow repository with a new appropriate name.    
@@ -15,7 +15,7 @@ Since there is only one `rundir`, one `namelist` directory, one `simres` directo
 
 The technical functionality of CASES is actually quite simple. CASES takes advantage of the fact that all paths within this workflow are determined by the `export_paths.ksh` script, which is shown below:
 ```
-expid="TSMP_WorkflowGettingStarted"
+expid="TSMP1_WorkflowEngine"
 rootdir="/PATH/TO/YOUR/EXPDIR/${expid}"
 export EXPID="${expid}"
 # export needed paths
@@ -60,7 +60,7 @@ BASE_MONITORINGDIR="${rootdir}/monitoring" >> "${rootdir}/monitoring/MainRun"
 BASE_NAMEDIR="${rootdir}/ctrl/namelists" >> "${rootdir}/ctrl/namelists/MainRun"
 BASE_GEODIR="${rootdir}/geo" >> "${rootdir}/geo/TSMP_EUR-11/static"
 ```
-The actual expansion of the base paths is done by the function [updatePathsForCASES()](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/blob/main/ctrl/start_helper.sh#L158C1-L191) which is called in [starter.sh](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/blob/main/ctrl/starter.sh#L108).
+The actual expansion of the base paths is done by the function [updatePathsForCASES()](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/start_helper.sh#L158C1-L191) which is called in [starter.sh](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/starter.sh#L108).
 
 If any script in the workflow then wants to store files in the `simres/` directory, it uses the `$BASE_SIMRESDIR` variable to store the data in `${rootdir}/simres/MainRun`. If different CASES point to different subdirectories, this prevents the simulation from interfering with each other and allows multiple simulations from different CASES to run in parallel.  
 You will notice that `$BASE_FORCINGDIR` is not extended, which is a way of allowing different CASES to use the same forcing. 
