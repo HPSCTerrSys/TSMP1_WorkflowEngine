@@ -20,7 +20,7 @@ Running a not fully coupled experiment is not very different from running a full
 **2.** You must inform the workflow which model components are involved by using the correct `COMBINATION` flag in `CASES.conf`. Depending on the `COMBINATION` flag, the workflow will automatically copy only the required static and namelist files, perform post-processing only for involved component models, etc.   
 
 **3.** According to the `COMBINATION` flag, the workflow automatically sets the forcing setting with the top model involved. This means that if `clm3-cos5-pfl` is run, COSMO is the top model and therefore COSMO needs forcing files, all other components see the forcing via the coupling. If `clm3-pfl` is run, CLM is the top model, so CLM will need forcing files, and ParFlow will see forcing via coupling. If `pfl` is run, ParFlow will need forcing files.   
-Technically, this is archived by keeping the name list very general and thus setting them up assuming the associated model needs forcing files. The workflow then simply deletes these lines if the component model does not need forcing. For an example [see how related lines are deleted for the parflow namelist](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/blob/main/ctrl/start_simulation.sh#L201-L203) when CLM is involved.
+Technically, this is archived by keeping the name list very general and thus setting them up assuming the associated model needs forcing files. The workflow then simply deletes these lines if the component model does not need forcing. For an example [see how related lines are deleted for the parflow namelist](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/start_simulation.sh#L201-L203) when CLM is involved.
 
 The forcing files itself has to be provided by the user under the following paths:
 ``` bash
@@ -30,7 +30,7 @@ ${BASE_ROOT}/forcing/clm/atm_forcing/YYYY-MM.nc
 ${BASE_ROOT}/forcing/parflow/evaptrans_${formattedStartDate}.nc
 ```
 where `YYYY-MM` is the year and month of the simulation start date, and
-`${formattedStartDate}` is the formatted start date of the simulation according to the [dateString set in starter.sh](https://github.com/HPSCTerrSys/TSMP_WorkflowGettingStarted/blob/main/ctrl/starter.sh#L21C1-L21C11).  
+`${formattedStartDate}` is the formatted start date of the simulation according to the [dateString set in starter.sh](https://github.com/HPSCTerrSys/TSMP1_WorkflowEngine/blob/main/ctrl/starter.sh#L21C1-L21C11).
 For the correct content and structure of the forcing file itself, we refere to the individual model manual.
 
 > **IMPORTANT NOTE:**  

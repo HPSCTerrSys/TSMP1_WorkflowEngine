@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project   = 'TSMP_WorkflowGettingStarted'
+project   = 'TSMP1_WorkflowEngine'
 copyright = '2023, Niklas WAGNER'
 author    = 'Niklas WAGNER'
 
@@ -50,7 +50,7 @@ html_static_path = []
 html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "HPSCTerrSys", # Username
-    "github_repo": "TSMP_WorkflowGettingStarted", # Repo name
+    "github_repo": "TSMP1_WorkflowEngine", # Repo name
     "github_version": "main", # Version
     "conf_py_path": "/doc/", # Path in the checkout to the docs root
 }
