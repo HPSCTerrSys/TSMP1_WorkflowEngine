@@ -145,7 +145,7 @@ request access to the related data project via
 [JuDoor](https://judoor.fz-juelich.de/login). The relevant data is stored under:
 
 ``` bash
-/p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts
+/p/largedata2/detectdata/CentralDB/projects/z04/SPINUP_TSMP_EUR-11/restarts
 ``` 
 
 To make the restart files available to the workflow, go to the restart 
@@ -154,12 +154,12 @@ directory and copy the restart files there:
 ``` bash
 cd $BASE_ROOT/rundir/MainRun/restarts
 # copy CLM restart file
-cp -r /p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts/clm ./
+cp -r /p/largedata2/detectdata/CentralDB/projects/z04/SPINUP_TSMP_EUR-11/restarts/clm ./
 # copy ParFlow restart file
-cp -r /p/largedata2/detectdata/projects/Z04/SPINUP_TSMP_EUR-11/restarts/parflow ./
+cp -r /p/largedata2/detectdata/CentralDB/projects/z04/SPINUP_TSMP_EUR-11/restarts/parflow ./
 ```
 > **NOTE**:
-> ParFlow needs the previous model-outpt as a restart-file, whereas CLM needs a 
+> ParFlow needs the previous model-output as a restart-file, whereas CLM needs a 
 special restart-file from the current time-step. This is why the date within 
 the file name is different for CLM and ParFlow.
 
